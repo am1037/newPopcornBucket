@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Handles requests for the application home page.
@@ -34,6 +35,12 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/go")
+	public String test(@RequestParam(value = "name", required = false) String name, Model model) {
+		System.out.println("name: "+name);
+		return name+"/first";
 	}
 	
 }
