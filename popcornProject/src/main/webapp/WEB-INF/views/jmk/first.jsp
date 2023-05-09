@@ -9,8 +9,31 @@
 <html>
 <head>
     <title>Title</title>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
 </head>
 <body>
 this is page for jmk
+<input id="theater_code">
+<input id="date">
+<button id="btn">click</button>
+
+<script>
+    $('#btn').click(function () {
+        var theater_code = $('#theater_code').val();
+        var date = $('#date').val();
+        $.ajax({
+            url: 'crawling',
+            type: 'get',
+            data: {
+                theater_code: theater_code,
+                date: date
+            },
+            success: function (data) {
+                console.log(data);
+            }
+        })
+    })
+</script>
+
 </body>
 </html>
