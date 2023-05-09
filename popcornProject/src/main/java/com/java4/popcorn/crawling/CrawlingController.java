@@ -1,5 +1,7 @@
 package com.java4.popcorn.crawling;
 
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,9 @@ import java.util.List;
 
 @Controller
 public class CrawlingController {
+
+    @Autowired
+    MovieScreenDAO msDAO;
 
     CrawlingCGV cgv = new CrawlingCGV();
     List<MovieScreenVO> msList;
@@ -23,6 +28,11 @@ public class CrawlingController {
         msList = cgv.crawling(theater_code, date);
         System.out.println(msList);
         //return "home";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/selectAll")
+    public void selectAll(Model model) {
+        msDAO.selectAll();
     }
 
 

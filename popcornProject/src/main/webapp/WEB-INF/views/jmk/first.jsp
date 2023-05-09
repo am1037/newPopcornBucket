@@ -18,7 +18,6 @@ this is page for jmk
 <button id="btn">click</button>
 <br><br>
 <button id="btn2" onclick="location.href='${pageContext.request.contextPath}/alarm/kakaotest.jsp'">click2</button>
-
 <script>
     $('#btn').click(function () {
         var theater_code = $('#theater_code').val();

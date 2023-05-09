@@ -18,22 +18,22 @@
         const REST_API_KEY = "04b500e325879415373f7b3fa5ff0e86";
         const REDIRECT_URI = "http://localhost:8887"+'<%= request.getContextPath() %>'+'/';
         console.log(REDIRECT_URI)
-        $('#kakao-login-btn').click(function (){
-            $.ajax(
-                {
-                    url: 'https://kauth.kakao.com/oauth/authorize',
-                    type: 'GET',
-                    data: {
-                        client_id : REST_API_KEY,
-                        redirect_uri: REDIRECT_URI,
-                        response_type: 'code'
-                    },
-                    success: function (data){
-                        console.log(data)
-                    }
-                }
-            )
-            }
+        // $('#kakao-login-btn').click(function (){
+        //     $.ajax(
+        //         {
+        //             url: 'https://kauth.kakao.com/oauth/authorize',
+        //             type: 'GET',
+        //             data: {
+        //                 client_id : REST_API_KEY,
+        //                 redirect_uri: REDIRECT_URI,
+        //                 response_type: 'code'
+        //             },
+        //             success: function (data){
+        //                 console.log(data)
+        //             }
+        //         }
+        //     )
+        //     }
         )
     </script>
 </body>
