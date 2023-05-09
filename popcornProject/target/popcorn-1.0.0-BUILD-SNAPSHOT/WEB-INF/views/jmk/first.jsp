@@ -16,6 +16,8 @@ this is page for jmk
 <input id="theater_code">
 <input id="date">
 <button id="btn">click</button>
+<br><br>
+<button id="btn2" onclick="location.href='${pageContext.request.contextPath}/alarm/kakaotest.jsp'">click2</button>
 
 <script>
     $('#btn').click(function () {
