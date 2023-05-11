@@ -16,27 +16,27 @@
     <!--   </environments>-->
     <typeAliases>
         <!--노지인-->
-        <typeAlias type="com.java4.popcorn.rankUser.RankUserVO" alias="RankUserVO"/>
-        <typeAlias type="com.java4.popcorn.rankMovie.RankMovieVO" alias="RankMovieVO"/>
-        <typeAlias type="com.java4.popcorn.rankActor.RankActorVO" alias="RankActorVO"/>
-        <typeAlias type="com.java4.popcorn.userSimilarity.UserSimilarityVO" alias="UserSimilarityVO"/>
-        <typeAlias type="com.java4.popcorn.movieReco.MovieRecoVO" alias="MovieRecoVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.rankUser.RankUserVO" alias="RankUserVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.rankMovie.RankMovieVO" alias="RankMovieVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.rankActor.RankActorVO" alias="RankActorVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.userSimilarity.UserSimilarityVO" alias="UserSimilarityVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.movieReco.MovieRecoVO" alias="MovieRecoVO"/>
 
         <!--나유경-->
-        <typeAlias type="com.java4.popcorn.bbs.BbsVO" alias="bbsVO"/>
-        <typeAlias type="com.java4.popcorn.bbsComment.BbsCommentVO" alias="BbsCommentVO"/>
-        <typeAlias type="com.java4.popcorn.bbsReply.BbsReplyVO" alias="BbsReplyVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.bbs.BbsVO" alias="bbsVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.bbsComment.BbsCommentVO" alias="BbsCommentVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.bbsReply.BbsReplyVO" alias="BbsReplyVO"/>
 
         <!--이시현-->
-        <typeAlias type="com.java4.popcorn.member.MemberVO" alias="MemberVO"/>
-        <typeAlias type="com.java4.popcorn.movieJjim.MovieJjimVO" alias="MovieJjimVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.member.MemberVO" alias="MemberVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.movieJjim.MovieJjimVO" alias="MovieJjimVO"/>
 
         <!--김준명-->
         <typeAlias type="com.java4.popcorn.movieInfo.MovieVO" alias="MovieVO"/>
-        <typeAlias type="com.java4.popcorn.actor.ActorVO" alias="ActorVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.actor.ActorVO" alias="ActorVO"/>
 
         <!--박근우-->
-        <typeAlias type="com.java4.popcorn.mycalendar.MyCalendarVO" alias="mycalendarVO"/>
+        <typeAlias type="com.java4.popcorn.notmine.mycalendar.MyCalendarVO" alias="mycalendarVO"/>
     </typeAliases>
 
 
