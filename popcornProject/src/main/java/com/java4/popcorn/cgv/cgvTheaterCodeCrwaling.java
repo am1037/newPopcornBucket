@@ -1,4 +1,4 @@
-package com.java4.popcorn.crawling;
+package com.java4.popcorn.cgv;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,6 +9,7 @@ import java.io.IOException;
 오직 cgv 극장 코드를 받기 위한 단발성 이용을 위한 코드입니다.
 cgv의 현재 극장들을 크롤링하여 극장,코드의 csv 형태로 출력합니다.
  */
+@Deprecated
 public class cgvTheaterCodeCrwaling {
     public static void main(String[] args) {
         String url = "http://www.cgv.co.kr/theaters/?areacode=02&theaterCode=";

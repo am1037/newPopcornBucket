@@ -1,4 +1,4 @@
-package com.java4.popcorn.crawling;
+package com.java4.popcorn.crawling.DB;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

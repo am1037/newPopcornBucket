@@ -1,4 +1,4 @@
-package com.java4.popcorn.crawling;
+package com.java4.popcorn.crawling.DB;
 
 import lombok.Data;
 

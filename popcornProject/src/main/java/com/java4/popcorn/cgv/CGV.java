@@ -1,6 +1,6 @@
-package com.java4.popcorn.crawling;
+package com.java4.popcorn.cgv;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.java4.popcorn.crawling.DB.MovieScreenVO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
-public class CrawlingCGV {
+public class CGV {
 
     String url = "http://www.cgv.co.kr/theaters/?areacode=02"; //오리
     String str1 = "&theaterCode=";
     String str2 = "&date=";
-    Schedule schedule;
-
-    public List<MovieScreenVO> crawling(String theater, String date) {
+    public Schedule crawl(String theater, String date) {
         /*
         theater ex)0004와
         date ex)20230505를 받아서 대상 url을 구성하고
@@ -27,7 +27,7 @@ public class CrawlingCGV {
          */
         String s1 = str1 + theater;
         String s2 = str2 + date;
-        schedule = new Schedule();
+        Schedule schedule = new Schedule();
         schedule.setTheater(theater);
         schedule.setDate(date);
         List<MovieScreenVO> msList = new ArrayList<>();
@@ -62,16 +62,20 @@ public class CrawlingCGV {
         }
         driver.close();
         schedule.setMovieScreenList(msList);
-        return msList;
+        return schedule;
     }
 
-    public void printJson(){
-        ObjectMapper om = new ObjectMapper();
-        String filename = "schedule"+schedule.getTheater()+schedule.getDate()+".json";
-        try {
-            om.writeValue(new File("popcornProject\\file-outputs\\"+filename), schedule);
-        }catch (Exception e){
-            e.printStackTrace();
+    public Map<String, Integer> count (String tcode, int i1, int i2) {
+        Map<String, Integer> map = new HashMap<>();
+        for(int i=i1; i<=i2; i++) {
+            Schedule schedule = new Schedule();
+            schedule = schedule.fromJson(tcode, i);
+            schedule.getMovieScreenList().forEach(x -> {
+                map.putIfAbsent(x.getTitle(), 0);
+                map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
+            });
         }
+        return map;
     }
+
 }
