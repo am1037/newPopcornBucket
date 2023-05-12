@@ -50,7 +50,7 @@ public class CGV {
                     MovieScreenVO ms = new MovieScreenVO();
                     ms.setTitle(movieTitle);
                     ms.setTheater("cgv");
-                    ms.setTheater_Id(theater);
+                    ms.setTheater_id(theater);
                     ms.setScreen(h.findElement(By.className("info-hall")).findElements(By.tagName("li")).get(1).getText());
                     String[] tempo = s.getText().split("\n");
                     ms.setTime(tempo[0]);
@@ -65,7 +65,12 @@ public class CGV {
         return schedule;
     }
 
-    public Map<String, Integer> count (String tcode, int i1, int i2) {
+    public MovieScreenVO readJson(String path) {
+        File file = new File(path);
+
+        return null;
+    }
+    public static Map<String, Integer> count (String tcode, int i1, int i2) {
         Map<String, Integer> map = new HashMap<>();
         for(int i=i1; i<=i2; i++) {
             Schedule schedule = new Schedule();
@@ -75,6 +80,24 @@ public class CGV {
                 map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
             });
         }
+        return map;
+    }
+
+    public static Map<String, Integer> count (Schedule schedule) {
+        Map<String, Integer> map = new HashMap<>();
+            schedule.getMovieScreenList().forEach(x -> {
+                map.putIfAbsent(x.getTitle(), 0);
+                map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
+            });
+        return map;
+    }
+
+    public static Map<String, Integer> count (List<MovieScreenVO> msList) {
+        Map<String, Integer> map = new HashMap<>();
+        msList.forEach(x -> {
+            map.putIfAbsent(x.getTitle(), 0);
+            map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
+        });
         return map;
     }
 

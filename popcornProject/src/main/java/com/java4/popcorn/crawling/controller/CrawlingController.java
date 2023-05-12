@@ -1,29 +1,49 @@
 package com.java4.popcorn.crawling.controller;
 
+import com.java4.popcorn.cgv.Schedule;
+import com.java4.popcorn.crawling.DB.MovieScreenDAO;
+import com.java4.popcorn.crawling.DB.MovieScreenVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.util.List;
 
 @Controller
 public class CrawlingController {
 
-//    @Autowired
-//    MovieScreenDAO msDAO;
+    @Autowired
+    MovieScreenDAO msDAO;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/1")
+    public void test(){
+        System.out.println(msDAO.select0513("슈퍼 마리오", "0004"));
+
+        //여러날짜 DB에 집어넣는 코드.. 지금은 비활성
+//        try {
 //
-//    CrawlingCGV cgv = new CrawlingCGV();
-//    List<MovieScreenVO> msList;
-//    @RequestMapping(method = RequestMethod.GET, value = "/crawling")
-//    public void crawling(
-//                        @RequestParam(value = "theater_code") String theater_code,
-//                        @RequestParam(value = "date") String date,
-//                        Model model) {
-//        System.out.println("theater_code: "+theater_code);
-//        System.out.println("date: "+date);
-//        //return "home";
-//    }
+//            Schedule schedule = new Schedule();
 //
-//    @RequestMapping(method = RequestMethod.GET, value = "/selectAll")
-//    public void selectAll(Model model) {
-//        msDAO.selectAll();
-//    }
+//            String[] theaterCodes = {"0004", "0009", "0056", "0257"};
+//            for (String t : theaterCodes) {
+//                for (int i = 20230513; i <= 20230520; i++) {
+//                    ClassPathResource cpr = new ClassPathResource("jsons\\schedule" + t + i + ".json");
+//                    File file = cpr.getFile();
+//                    schedule.fromJson(file).getMovieScreenList().forEach(msDAO::insert);
+//                }
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+    }
 
 
 }

@@ -41,6 +41,10 @@
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-sync:4.9.0" />
+          <element id="library" level="project" name="Maven: org.mongodb:bson:4.9.0" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-core:4.9.0" />
+          <element id="library" level="project" name="Maven: org.mongodb:bson-record-codec:4.9.0" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-java:4.9.0" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-api:4.9.0" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:4.9.0" />

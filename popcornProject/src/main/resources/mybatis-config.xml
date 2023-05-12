@@ -28,7 +28,7 @@
         <typeAlias type="com.java4.popcorn.notmine.bbsReply.BbsReplyVO" alias="BbsReplyVO"/>
 
         <!--이시현-->
-        <typeAlias type="com.java4.popcorn.notmine.member.MemberVO" alias="MemberVO"/>
+        <typeAlias type="com.java4.popcorn.member.MemberVO" alias="MemberVO"/>
         <typeAlias type="com.java4.popcorn.notmine.movieJjim.MovieJjimVO" alias="MovieJjimVO"/>
 
         <!--김준명-->

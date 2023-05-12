@@ -1,8 +1,7 @@
-package com.java4.popcorn.notmine.member;
+package com.java4.popcorn.member;
 
 
 import com.java4.popcorn.GeneralDAO;
-import com.java4.popcorn.notmine.bbsReply.BbsReplyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

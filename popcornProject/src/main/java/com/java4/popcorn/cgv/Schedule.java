@@ -28,7 +28,24 @@ public class Schedule {
         ObjectMapper om = new ObjectMapper();
         File file = new File("popcornProject\\file-outputs\\schedule" + tcode + date +".json");
         try {
-            return om.readValue(file, Schedule.class);
+            Schedule schedule = om.readValue(file, Schedule.class);
+            theater = tcode;
+            this.date = String.valueOf(date);
+            this.movieScreenList = schedule.getMovieScreenList();
+            return schedule;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Schedule fromJson(File file){
+        ObjectMapper om = new ObjectMapper();
+        try {
+            Schedule schedule = om.readValue(file, Schedule.class);
+            theater = file.getName().substring(8,12);
+            this.date = file.getName().substring(12,20);
+            this.movieScreenList = schedule.getMovieScreenList();
+            return schedule;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

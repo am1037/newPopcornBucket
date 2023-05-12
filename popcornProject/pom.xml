@@ -162,6 +162,13 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.0.1.RELEASE</version>
 		</dependency>
+		<!-- mongoDB -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver-sync</artifactId>
+			<version>4.9.0</version>
+		</dependency>
+
 
 		<!--크롤링 관련-->
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
