@@ -1,8 +1,8 @@
 package com.java4.popcorn;
 
 import com.java4.popcorn.cgv.CGV;
-import com.java4.popcorn.crawling.DB.MovieScreenDAO;
-import com.java4.popcorn.crawling.DB.MovieScreenVO;
+import com.java4.popcorn.DB.MovieScreenDAO;
+import com.java4.popcorn.DB.MovieScreenVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

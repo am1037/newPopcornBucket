@@ -15,54 +15,54 @@
     <!--      </environment>-->
     <!--   </environments>-->
     <typeAliases>
-        <!--노지인-->
-        <typeAlias type="com.java4.popcorn.notmine.rankUser.RankUserVO" alias="RankUserVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.rankMovie.RankMovieVO" alias="RankMovieVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.rankActor.RankActorVO" alias="RankActorVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.userSimilarity.UserSimilarityVO" alias="UserSimilarityVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.movieReco.MovieRecoVO" alias="MovieRecoVO"/>
+<!--        &lt;!&ndash;노지인&ndash;&gt;-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.rankUser.RankUserVO" alias="RankUserVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.rankMovie.RankMovieVO" alias="RankMovieVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.rankActor.RankActorVO" alias="RankActorVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.userSimilarity.UserSimilarityVO" alias="UserSimilarityVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.movieReco.MovieRecoVO" alias="MovieRecoVO"/>-->
 
-        <!--나유경-->
-        <typeAlias type="com.java4.popcorn.notmine.bbs.BbsVO" alias="bbsVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.bbsComment.BbsCommentVO" alias="BbsCommentVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.bbsReply.BbsReplyVO" alias="BbsReplyVO"/>
+<!--        &lt;!&ndash;나유경&ndash;&gt;-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.bbs.BbsVO" alias="bbsVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.bbsComment.BbsCommentVO" alias="BbsCommentVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.bbsReply.BbsReplyVO" alias="BbsReplyVO"/>-->
 
-        <!--이시현-->
-        <typeAlias type="com.java4.popcorn.member.MemberVO" alias="MemberVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.movieJjim.MovieJjimVO" alias="MovieJjimVO"/>
+<!--        &lt;!&ndash;이시현&ndash;&gt;-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.member.MemberVO" alias="MemberVO"/>-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.movieJjim.MovieJjimVO" alias="MovieJjimVO"/>-->
 
-        <!--김준명-->
-        <typeAlias type="com.java4.popcorn.movieInfo.MovieVO" alias="MovieVO"/>
-        <typeAlias type="com.java4.popcorn.notmine.actor.ActorVO" alias="ActorVO"/>
+            <!--김준명-->
+            <typeAlias type="com.java4.popcorn.notnow.Kobis.movieInfo.MovieVO" alias="MovieVO"/>
+<!--        <typeAlias type="com.java4.popcorn.notmine.actor.ActorVO" alias="ActorVO"/>-->
 
-        <!--박근우-->
-        <typeAlias type="com.java4.popcorn.notmine.mycalendar.MyCalendarVO" alias="mycalendarVO"/>
+<!--        &lt;!&ndash;박근우&ndash;&gt;-->
+<!--        <typeAlias type="com.java4.popcorn.notmine.mycalendar.MyCalendarVO" alias="mycalendarVO"/>-->
     </typeAliases>
 
 
     <mappers>
-        <!--노지인-->
-        <mapper resource="mappers/rankUserMapper.xml"/>
-        <mapper resource="mappers/rankMovieMapper.xml"/>
-        <mapper resource="mappers/rankActorMapper.xml"/>
-        <mapper resource="mappers/userSimilarityMapper.xml"/>
-        <mapper resource="mappers/movieRecoMapper.xml"/>
+<!--        &lt;!&ndash;노지인&ndash;&gt;-->
+<!--        <mapper resource="mappers/rankUserMapper.xml"/>-->
+<!--        <mapper resource="mappers/rankMovieMapper.xml"/>-->
+<!--        <mapper resource="mappers/rankActorMapper.xml"/>-->
+<!--        <mapper resource="mappers/userSimilarityMapper.xml"/>-->
+<!--        <mapper resource="mappers/movieRecoMapper.xml"/>-->
 
-        <!--나유경-->
-        <mapper resource="mappers/bbsMapper.xml"/>
-        <mapper resource="mappers/bbsReplyMapper.xml"/>
-        <mapper resource="mappers/bbsCommentMapper.xml"/>
+<!--        &lt;!&ndash;나유경&ndash;&gt;-->
+<!--        <mapper resource="mappers/bbsMapper.xml"/>-->
+<!--        <mapper resource="mappers/bbsReplyMapper.xml"/>-->
+<!--        <mapper resource="mappers/bbsCommentMapper.xml"/>-->
 
-        <!--이시현-->
-        <mapper resource="mappers/memberMapper.xml"/>
-        <mapper resource="mappers/movieJjimMapper.xml"/>
+<!--        &lt;!&ndash;이시현&ndash;&gt;-->
+<!--        <mapper resource="mappers/memberMapper.xml"/>-->
+<!--        <mapper resource="mappers/movieJjimMapper.xml"/>-->
 
         <!--김준명-->
         <mapper resource="mappers/movieMapper.xml"/>
-        <mapper resource="mappers/actorMapper.xml"/>
+<!--        <mapper resource="mappers/actorMapper.xml"/>-->
 
         <!--박근우-->
-        <mapper resource="mappers/mycalendarMapper.xml"/>
+<!--        <mapper resource="mappers/mycalendarMapper.xml"/>-->
 <!--        <mapper resource="mappers/moviecalendarMapper.xml"/>-->
 
         <!--정민기-->

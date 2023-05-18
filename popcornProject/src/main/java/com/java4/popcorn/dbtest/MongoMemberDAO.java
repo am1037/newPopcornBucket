@@ -27,7 +27,6 @@ public class MongoMemberDAO {
         //member.getMovie_favorites().forEach(System.out::println);
     }
     public Member selectOne(String id) {
-
         try(MongoClient mongoClient = MongoClients.create(url)) {
             MongoDatabase db = mongoClient.getDatabase(dbName);
             MongoCollection<Document> collection = db.getCollection("member");

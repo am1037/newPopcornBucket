@@ -1,21 +1,10 @@
 package com.java4.popcorn.crawling.controller;
 
-import com.java4.popcorn.cgv.Schedule;
-import com.java4.popcorn.crawling.DB.MovieScreenDAO;
-import com.java4.popcorn.crawling.DB.MovieScreenVO;
+import com.java4.popcorn.DB.MovieScreenDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.InputStreamReader;
-import java.util.List;
 
 @Controller
 public class CrawlingController {

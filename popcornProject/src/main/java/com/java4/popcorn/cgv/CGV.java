@@ -1,6 +1,6 @@
 package com.java4.popcorn.cgv;
 
-import com.java4.popcorn.crawling.DB.MovieScreenVO;
+import com.java4.popcorn.DB.MovieScreenVO;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +19,7 @@ public class CGV {
     String url = "http://www.cgv.co.kr/theaters/?areacode=02"; //오리
     String str1 = "&theaterCode=";
     String str2 = "&date=";
+
     public Schedule crawl(String theater, String date) {
         /*
         theater ex)0004와
@@ -67,9 +68,23 @@ public class CGV {
 
     public MovieScreenVO readJson(String path) {
         File file = new File(path);
-
         return null;
     }
+
+
+    public static Map<String, Integer> count (Schedule schedule) {
+        return count(schedule.getMovieScreenList());
+    }
+
+    public static Map<String, Integer> count (List<MovieScreenVO> msList) {
+        Map<String, Integer> map = new HashMap<>();
+        msList.forEach(x -> {
+            map.putIfAbsent(x.getTitle(), 0);
+            map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
+        });
+        return map;
+    }
+
     public static Map<String, Integer> count (String tcode, int i1, int i2) {
         Map<String, Integer> map = new HashMap<>();
         for(int i=i1; i<=i2; i++) {
@@ -82,23 +97,4 @@ public class CGV {
         }
         return map;
     }
-
-    public static Map<String, Integer> count (Schedule schedule) {
-        Map<String, Integer> map = new HashMap<>();
-            schedule.getMovieScreenList().forEach(x -> {
-                map.putIfAbsent(x.getTitle(), 0);
-                map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
-            });
-        return map;
-    }
-
-    public static Map<String, Integer> count (List<MovieScreenVO> msList) {
-        Map<String, Integer> map = new HashMap<>();
-        msList.forEach(x -> {
-            map.putIfAbsent(x.getTitle(), 0);
-            map.computeIfPresent(x.getTitle(), (k, v) -> v + 1);
-        });
-        return map;
-    }
-
 }
