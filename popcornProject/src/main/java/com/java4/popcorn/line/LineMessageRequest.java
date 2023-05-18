@@ -1,6 +1,7 @@
 package com.java4.popcorn.line;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.java4.popcorn.line.temp.LineMessage;
 import lombok.Data;
 
 import java.io.File;
@@ -9,23 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class LineMessage {
+public class LineMessageRequest {
     private String to = "U18f79b1492deb6b43ae022c04acc586a";
-    private List<LineInnerMessage> messages;
+    private List<LineMessage> messages;
 
-    public List<LineInnerMessage> addInnerTextMessage(String text){
+    public List<LineMessage> addInnerTextMessage(String text){
         if(messages == null){
             messages = new ArrayList<>();
         }
-        LineInnerMessage lineInnerMessage = new LineInnerMessage();
+        LineMessage lineInnerMessage = new LineMessage();
         lineInnerMessage.setText(text);
         messages.add(lineInnerMessage);
         return messages;
-    }
-    @Data
-    static class LineInnerMessage {
-        String type = "text";
-        String text = "default text";
     }
 
     public String printAsJsonFile() {

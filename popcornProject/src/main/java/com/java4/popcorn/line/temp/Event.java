@@ -12,6 +12,7 @@ public class Event {
     private Source source;
     private String webhookEventId;
     private DeliveryContext deliveryContext;
+    private LineMessage message;
 
     // getters and setters
 }

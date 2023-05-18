@@ -19,7 +19,7 @@ import java.util.Map;
 @Controller
 public class ControllerFor0513 {
     @Autowired
-    MovieScreenDAO msd;
+    MovieScreenDAO movieScreenDAO;
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public String test() {
@@ -38,7 +38,7 @@ public class ControllerFor0513 {
         List<String> mfL = Arrays.asList(mfs.split(","));
         List<MovieScreenVO> msL = new ArrayList<>();
         for(String t:tfL){
-            msL.addAll(msd.selectByTheater(t));
+            msL.addAll(movieScreenDAO.selectByTheater(t));
             System.out.println("msL: "+msL);
         }
         Map<String, Integer> map = CGV.count(msL);

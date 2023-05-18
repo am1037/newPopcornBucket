@@ -16,7 +16,7 @@ public class LineAPI {
 
     public String writeMessage(String content, String to){
         //json 작성
-        LineMessage mj = new LineMessage();
+        LineMessageRequest mj = new LineMessageRequest();
         mj.setTo(to);
         mj.addInnerTextMessage(content);
         return str = mj.printAsJsonFile();
