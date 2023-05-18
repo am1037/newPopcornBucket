@@ -32,9 +32,10 @@ public class ControllerFor0513 {
     // mov_fav.contains해서 있으면+상영관 적으면 빨강색, 있으면+상영관 보통이면 주황색
     // 남은 것들은 하얀색에 정렬하도록
     @RequestMapping(method = RequestMethod.GET, value = "/111")
-    public String test2(@RequestParam(value = "tfavs") String tfs,
-                        @RequestParam(value = "mfavs") String mfs,
-                        @RequestParam(value = "threshold") int threshold, Model model) {
+    public String test2(
+                    @RequestParam(value = "tfavs") String tfs,
+                    @RequestParam(value = "mfavs") String mfs,
+                    @RequestParam(value = "threshold") int threshold, Model model) {
         String[] tfL = tfs.split(",");
         List<String> mfL = Arrays.asList(mfs.split(","));
         List<ScreenVO> msL = new ArrayList<>();

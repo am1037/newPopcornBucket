@@ -1,6 +1,8 @@
 package com.java4.popcorn.api.line;
 
 import com.java4.popcorn.data.MongoMember.MongoMemberDAO;
+import com.java4.popcorn.data.screen.ScreenDAO;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +18,11 @@ public class TestControllerForLine {
 
     @Autowired
     private LineAPI lineAPI;
+
+    @Autowired
+    private ScreenDAO screenDAO;
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/line")
     public void test(@RequestBody String body){
         System.out.println("body: " + body);
@@ -28,7 +35,11 @@ public class TestControllerForLine {
         }else if(wd.getEvents().get(0).getType().equals("unfollow")){
             mongoMemberDAO.deleteOne(userId);
         }else {
-            System.out.println(lineAPI.sendMessageTest("아직 아무 기능도 없답니다.", userId));
+            //System.out.println(lineAPI.sendMessageTest("아직 아무 기능도 없답니다.", userId));
+            String message = wd.getEvents().get(0).getMessage().getText();
+            String str = screenDAO.test2(message);
+            System.out.println("str: " + str);
+            System.out.println(lineAPI.sendMessageTest(str, userId));
         }
     }
 

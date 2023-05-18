@@ -34,8 +34,6 @@ import java.util.stream.Stream;
 public class AdminController {
     @Autowired
     CGV cgv;
-//    @Autowired
-//    KmdbAPI kmdbAPI;
     @Autowired
     ScreenDAO screenDAO;
     @Autowired

@@ -1,16 +1,17 @@
 package com.java4.popcorn.data.screen;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.java4.popcorn.crawling.cgv.CGV;
 import com.java4.popcorn.data.theater.TheaterVO;
 import com.java4.popcorn.crawling.cgv.Schedule;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class ScreenDAO {
@@ -140,5 +141,48 @@ public class ScreenDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public String test2(String tfs) {
+        String[] tfL = tfs.split(",");
+        try {
+            int i = Integer.parseInt(tfL[0]);
+        }catch (Exception e){
+            return "땡!";
+        }
+        List<ScreenVO> msL = new ArrayList<>();
+        for(String t:tfL){
+            msL.addAll(selectByTheater(t));
+            System.out.println("msL: "+msL);
+        }
+        Map<String, Integer> map = CGV.count(msL);
+        List<String> strings = new ArrayList<>();
+        map.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(e -> strings.add(e.getKey()));
+        for(String s: strings){
+            System.out.println(s+" "+map.get(s));
+        }
+
+        //
+        List<String> lightList = new ArrayList<>();
+        String str;
+        while (strings.size()>0) {
+            str = strings.remove(0);
+            lightList.add(str);
+        }
+
+        System.out.println("lightList: "+lightList);
+
+        StringBuilder sb = new StringBuilder();
+        for(String s: tfL){
+            TheaterVO vo = my.selectOne("TheaterDAO.selectOneTheater", s);
+            String name = vo.getTheater_name();
+            sb.append(s).append(" : ").append(name).append("\n");
+        }
+        sb.append("의 상영횟수 입니다.\n");
+        for(String s: lightList){
+            sb.append(s).append(" : ").append(map.get(s)).append("\n");
+        }
+
+        return sb.toString();
     }
 }
