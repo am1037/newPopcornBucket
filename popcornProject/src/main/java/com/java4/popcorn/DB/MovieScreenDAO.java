@@ -31,6 +31,12 @@ public class MovieScreenDAO {
         return theaterCodes;
     }
 
+    public List<TheaterCodeVO> getTheaterCodes(String region) {
+        theaterCodes = this.selectTheaterByRegion(region);
+        return theaterCodes;
+    }
+
+
     public List<MovieScreenVO> selectByTheaterAndDate(String theater, String data){
         try {
             Map<String, String> map = new HashMap<>();
@@ -73,6 +79,26 @@ public class MovieScreenDAO {
         }
     }
 
+    public int insertFromUntilByTheater(String theater, String dateFrom, String dateUntil){
+        int i1 = Integer.parseInt(dateFrom);
+        int i2 = Integer.parseInt(dateUntil);
+        int count = 0;
+        for (int i=i1; i<=i2; i++){
+            String date = String.valueOf(i);
+            System.out.println("theater: "+theater + ", date: "+date);
+            Schedule schedule;
+            try {
+                schedule = new Schedule().fromJson(new File("schedules/"+theater+"_"+date+".json"));
+                schedule.getMovieScreenList().forEach(this::insert);
+                System.out.println("theater: "+theater + ", date: "+date+" inserted");
+                count++;
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return count;
+    }
+
     public List<TheaterCodeVO> selectAllTheaterCode(){
         try {
             return my.selectList("MovieScreenDAO.selectAllTheater");
@@ -87,6 +113,17 @@ public class MovieScreenDAO {
             Map<String, String> map = new HashMap<>();
             map.put("theater_id", theater_id);
             return my.selectOne("MovieScreenDAO.selectOneTheater", map);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<TheaterCodeVO> selectTheaterByRegion(String region){
+        try {
+            Map<String, String> map = new HashMap<>();
+            map.put("theater_region", region);
+            return my.selectList("MovieScreenDAO.selectTheatersByRegion", map);
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -39,6 +39,7 @@ public class ControllerFor0513 {
         List<MovieScreenVO> msL = new ArrayList<>();
         for(String t:tfL){
             msL.addAll(msd.selectByTheater(t));
+            System.out.println("msL: "+msL);
         }
         Map<String, Integer> map = CGV.count(msL);
         List<String> strings = new ArrayList<>();

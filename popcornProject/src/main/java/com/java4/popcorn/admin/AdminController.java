@@ -62,29 +62,20 @@ public class AdminController {
                         Model model){
         System.out.println("cgvInsertToDB");
         System.out.println("theater: "+theater + ", date: "+dateFrom+"~"+dateUntil);
-        int i1 = Integer.parseInt(dateFrom);
-        int i2 = Integer.parseInt(dateUntil);
-        for (int i=i1; i<=i2; i++){
-            String date = String.valueOf(i);
-            System.out.println("theater: "+theater + ", date: "+date);
-            Schedule schedule = new Schedule().fromJson(new File("schedules/"+theater+"_"+date+".json"));
-            schedule.getMovieScreenList().forEach(movieScreenDAO::insert);
-            System.out.println("theater: "+theater + ", date: "+date+" inserted");
-        }
-
+        movieScreenDAO.insertFromUntilByTheater(theater, dateFrom, dateUntil);
         return "admin";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/ciat")
-    public String cgvInsertToDB(
+    public String cgvInsertAllToDB(
             @RequestParam("dateFrom") String dateFrom,
             @RequestParam("dateUntil") String dateUntil,
             Model model){
         System.out.println("cgvInsertAllToDB");
-        System.out.println("theater: "+", date: "+dateFrom+"~"+dateUntil);
+        System.out.println("date: "+dateFrom+"~"+dateUntil);
         for(TheaterCodeVO vo : movieScreenDAO.getTheaterCodes()){
             System.out.println("theater: "+vo);
-            cgvInsertToDB(vo.getTheater_id(), dateFrom, dateUntil, model);
+            movieScreenDAO.insertFromUntilByTheater(vo.getTheater_id(), dateFrom, dateUntil);
         }
         return "admin";
     }
@@ -130,6 +121,22 @@ public class AdminController {
             System.out.println("theater: "+vo);
             cgvCrawlByTheaterAndDateFromUntil(vo.getTheater_id(), dateFrom, dateUntil, model);
         }
+
+        return "admin";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/cctbr")
+    public String cgvCrawlTheatersByRegion(
+            @RequestParam("dateFrom") String dateFrom,
+            @RequestParam("dateUntil") String dateUntil,
+            @RequestParam("region") String region,
+            Model model){
+        System.out.println("cgvCrawlTheatersByRegion");
+        for(TheaterCodeVO vo : movieScreenDAO.getTheaterCodes(region)){
+            System.out.println("theater: "+vo);
+            cgvCrawlByTheaterAndDateFromUntil(vo.getTheater_id(), dateFrom, dateUntil, model);
+        }
+        System.out.println(cgv.getMap());
 
         return "admin";
     }

@@ -21,8 +21,10 @@
     <label for="theater">theater</label><input id="theater"><br>
     <label for="dateFrom">dateFrom</label><input id="dateFrom" value="${today}"><br>
     <label for="dateUntil">dateUntil</label><input id="dateUntil" value="${lastday}"><br>
+    <label for="region">region</label><input id="region" value="경기도"><br>
     <button id="btnc2j">Crawl2Json</button>
     <button id="btncat">CrawlAllTheaters</button><br>
+    <button id="btnctbr">CrawlTheatersByRegion</button><br>
     <button id="btnj2d">Json2DB</button>
     <button id="btniat">InsertAllTheaters</button><br>
 </div>
@@ -86,6 +88,25 @@
             data: {
                 dateFrom: dateFrom,
                 dateUntil: dateUntil
+            },
+            success: function (data) {
+                console.log("success");
+                //$("#result").html(data); 추후 예외처리
+            }
+        });
+    });
+
+    $("#btnctbr").click(function () {
+        var dateFrom = $("#dateFrom").val();
+        var dateUntil = $("#dateUntil").val();
+        var region = $("#region").val();
+        $.ajax({
+            url: "cctbr",
+            type: "GET",
+            data: {
+                dateFrom: dateFrom,
+                dateUntil: dateUntil,
+                region: region
             },
             success: function (data) {
                 console.log("success");

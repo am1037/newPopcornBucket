@@ -30,6 +30,9 @@
     <select id="selectOneTheater" resultType="com.java4.popcorn.DB.TheaterCodeVO">
         select * from popcorn.theater where theater_id = #{theater_id}
     </select>
+    <select id="selectTheatersByRegion" resultType="com.java4.popcorn.DB.TheaterCodeVO">
+        select * from popcorn.theater where theater_region = #{theater_region}
+    </select>
 
 
 
