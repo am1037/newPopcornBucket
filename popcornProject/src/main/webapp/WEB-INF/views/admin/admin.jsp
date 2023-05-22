@@ -43,7 +43,8 @@
     <br>
     <label for="dateFrom">dateFrom</label><input id="dateFrom" value="${today}"><br>
     <label for="dateUntil">dateUntil</label><input id="dateUntil" value="${lastday}"><br>
-    <button id="btn_crawlFromUntilRegion">crawl -> json (from, until, region)</button>
+    <button id="btn_crawlFromUntilRegion">crawl -> json (from, until, region)</button><br>
+    <button id="btn_crawlOne">crawl -> json (from, until, theater)</button><br>
     <button id="btn_insertFromUntil">json -> DB (from, until)</button>
     <button id="btn_insertExistingFiles">json -> DB (existing)</button>
 </div>
@@ -92,6 +93,22 @@
                 "dateFrom": $("#dateFrom").val(),
                 "dateUntil": $("#dateUntil").val(),
                 "region": $("#region").val()
+            },
+            success: function (data) {
+                console.log("success");
+                $("#result").html(data);
+            }
+        });
+    });
+
+    $("#btn_crawlOne").click(function () {
+        $.ajax({
+            url: "admin/crawlOne",
+            type: "GET",
+            data: {
+                "dateFrom": $("#dateFrom").val(),
+                "dateUntil": $("#dateUntil").val(),
+                "theater": $("#theater").val()
             },
             success: function (data) {
                 console.log("success");

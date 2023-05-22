@@ -22,10 +22,10 @@ public class ControllerFor0513 {
     @Autowired
     ScreenDAO screenDAO;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
-    public String test() {
-        return "home";
-    }
+//    @RequestMapping(method = RequestMethod.GET, value = "/")
+//    public String test() {
+//        return "home";
+//    }
 
     // 일단 count해서 정렬
     // 상영관 적은 게 앞에 오도록 정렬한 다음에

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -142,21 +141,42 @@ public class AdminController {
 
         for(int i = i1; i <= i2; i++){
             for(String theater_id : list){
-                String date = String.valueOf(i);
-                System.out.println("crawling theater: "+theater_id+", date: "+date);
-                try {
-                    Schedule schedule = cgv.crawl(theater_id, date);
-                    schedule.printAsJsonFile("schedules/"+theater_id+"_"+date+".json");
-                }catch (Exception e){
-                    if(crawlingErrors == null) crawlingErrors = new HashMap<>();
-                    crawlingErrors.putIfAbsent(theater_id, new ArrayList<>());
-                    crawlingErrors.get(theater_id).add(date);
-                    System.out.println("error: "+e.getMessage());
-                }
+                cgvCrawlOneDay(theater_id, i);
             }
         }
 
         System.out.println("cgvCrawlFromUntilRegion Done");
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/crawlOne")
+    public void cgvCrawlOneTheater(
+            @RequestParam("dateFrom") String dateFrom,
+            @RequestParam("dateUntil") String dateUntil,
+            @RequestParam("theater") String theater_id){
+        System.out.println("cgvCrawlOne");
+
+        int i1 = Integer.parseInt(dateFrom);
+        int i2 = Integer.parseInt(dateUntil);
+
+        for(int i = i1; i <= i2; i++){
+            cgvCrawlOneDay(theater_id, i);
+        }
+
+        System.out.println("cgvCrawlOne Done");
+    }
+
+    private void cgvCrawlOneDay(@RequestParam("theater") String theater_id, int i) {
+        String date = String.valueOf(i);
+        System.out.println("crawling theater: "+theater_id+", date: "+date);
+        try {
+            Schedule schedule = cgv.crawl(theater_id, date);
+            schedule.printAsJsonFile("schedules/"+theater_id+"_"+date+".json");
+        }catch (Exception e){
+            if(crawlingErrors == null) crawlingErrors = new HashMap<>();
+            crawlingErrors.putIfAbsent(theater_id, new ArrayList<>());
+            crawlingErrors.get(theater_id).add(date);
+            System.out.println("error: "+e.getMessage());
+        }
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/insertTheaterCodes")

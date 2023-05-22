@@ -16,6 +16,12 @@
 	<dependencies>
 		<!-- Temporary -->
 		<!-- 나중에 각자 자기 위치로 옮기기 -->
+		<!-- Google -->
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>2.2.0</version>
+		</dependency>
 
 		<!-- lombok -->
 		<dependency>
