@@ -9,11 +9,11 @@ package com.java4.popcorn.controllers;
 3. kobis 또는 kmdb로부터 lazy하게 콜 하는 버튼?
  */
 
-import com.java4.popcorn.data.theater.TheaterVO;
-import com.java4.popcorn.crawling.cgv.CGV;
-import com.java4.popcorn.crawling.cgv.Schedule;
-import com.java4.popcorn.data.screen.ScreenDAO;
-import com.java4.popcorn.data.theater.TheaterDAO;
+import com.java4.popcorn.database.theater.TheaterVO;
+import com.java4.popcorn.database.cgv.CGV;
+import com.java4.popcorn.database.cgv.Schedule;
+import com.java4.popcorn.database.screen.ScreenDAO;
+import com.java4.popcorn.database.theater.TheaterDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

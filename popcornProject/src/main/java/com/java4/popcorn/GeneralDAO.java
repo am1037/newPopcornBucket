@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class GeneralDAO<T> {
     private T vo;
-    private String className;
     private String alias;
 
     @Autowired
@@ -19,7 +18,6 @@ public class GeneralDAO<T> {
     public boolean insertOne() {
         return my.insert(alias+".insertOne", vo) == 1;
     }
-
     public T selectOne(T vo){
         return my.selectOne(alias+".selectOne", vo);
     }
@@ -33,7 +31,7 @@ public class GeneralDAO<T> {
         this.alias = alias;
     }
     public void setVo(T vo) {
-        className = vo.getClass().getSimpleName();
+        String className = vo.getClass().getSimpleName();
         alias = className.substring(0, className.length()-2) + "DAO";
         System.out.println(alias);
         this.vo = vo;

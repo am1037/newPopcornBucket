@@ -15,6 +15,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -33,7 +36,7 @@
                     <a class="nav-link" href="#">영화 즐겨찾기</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">알람 관리</a>
+                    <a class="nav-link" href="#">알람 관리</a>
                 </li>
             </ul>
         </div>
@@ -46,22 +49,9 @@
     <p>Only when the button is clicked, the navigation bar will be displayed.</p>
     <p>Tip: You can also remove the .navbar-expand-md class to ALWAYS hide navbar links and display the toggler button.</p>
 </div>
-<div id="g_id_onload"
-     data-client_id="268445266982-01p5innc3436rsjcftk3g2p6t2rpclf4.apps.googleusercontent.com"
-     data-context="signin"
-     data-ux_mode="popup"
-     data-login_uri="http://localhost:8887/newPopcornBucket_war_exploded/test"
-     data-auto_prompt="false">
-</div>
 
-<div class="g_id_signin"
-     data-type="standard"
-     data-shape="rectangular"
-     data-theme="outline"
-     data-text="continue_with"
-     data-size="large"
-     data-logo_alignment="left">
-</div>
+
+
 </body>
 </html>
 

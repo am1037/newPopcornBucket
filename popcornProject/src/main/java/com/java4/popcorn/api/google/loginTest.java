@@ -11,16 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class loginTest {
 
-    GoogleIdTokenVerifier verifier;
     @RequestMapping(method = RequestMethod.POST, value = "/test")
     public String test(@RequestBody String body,
                        Model model) {
-        System.out.println("body: " + body);
-
-        //GoogleIdTokenVerifier googleIdTokenVerifier = new GoogleIdTokenVerifier();
+        //System.out.println("body: " + body);
+        String[] strs = body.split("&");
+        String[] strss = strs[0].split("\\.");
+        for (String str : strss) {
+            System.out.println(str);
+        }
+        System.out.println(strss[1]);
 
         return "test";
     }
-
 
 }

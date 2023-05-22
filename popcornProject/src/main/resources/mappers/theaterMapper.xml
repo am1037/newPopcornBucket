@@ -8,13 +8,13 @@
         insert into popcorn.theater
         values(#{theater_company}, #{theater_id} ,#{theater_name}, #{theater_location}, #{theater_region})
     </insert>
-    <select id="selectAllTheater" resultType="com.java4.popcorn.data.theater.TheaterVO">
+    <select id="selectAllTheater" resultType="com.java4.popcorn.database.theater.TheaterVO">
         select * from popcorn.theater
     </select>
-    <select id="selectOneTheater" resultType="com.java4.popcorn.data.theater.TheaterVO">
+    <select id="selectOneTheater" resultType="com.java4.popcorn.database.theater.TheaterVO">
         select * from popcorn.theater where theater_id = #{theater_id}
     </select>
-    <select id="selectTheatersByRegion" resultType="com.java4.popcorn.data.theater.TheaterVO">
+    <select id="selectTheatersByRegion" resultType="com.java4.popcorn.database.theater.TheaterVO">
         select * from popcorn.theater where theater_region = #{theater_region}
     </select>
 

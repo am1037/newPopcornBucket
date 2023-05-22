@@ -1,8 +1,8 @@
 package com.java4.popcorn.controllers;
 
-import com.java4.popcorn.crawling.cgv.CGV;
-import com.java4.popcorn.data.screen.ScreenDAO;
-import com.java4.popcorn.data.screen.ScreenVO;
+import com.java4.popcorn.database.cgv.CGV;
+import com.java4.popcorn.database.screen.ScreenDAO;
+import com.java4.popcorn.database.screen.ScreenVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
