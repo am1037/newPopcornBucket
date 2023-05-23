@@ -1,0 +1,411 @@
+{
+  "Query": "",
+  "KMAQuery": "",
+  "TotalCount": 100557,
+  "Data": [
+    {
+      "CollName": "kmdb_new2",
+      "TotalCount": 100557,
+      "Count": 7,
+      "Result": [
+        {
+          "movieId": "F",
+          "movieSeq": "30371",
+          "title": " 신비의 법",
+          "titleEng": "",
+          "titleOrg": "神秘の法",
+          "titleEtc": "신비의법^신비의 법^神秘の法^신비의법^The Mystical Law",
+          "prodYear": "2012",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "이마카케 이사무",
+                "directorEnNm": "Imakake Isamu",
+                "directorId": "00166530"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "코야스 타케히토",
+                "actorEnNm": "Takehito Koyasu",
+                "actorId": "00138070"
+              },
+              {
+                "actorNm": "아유미 후지무라",
+                "actorEnNm": "Ayumi Fujimura",
+                "actorId": "00157273"
+              },
+              {
+                "actorNm": "히라카와 다이스케",
+                "actorEnNm": "Daisuke Hirakawa",
+                "actorId": "00166526"
+              },
+              {
+                "actorNm": "유즈키 료카",
+                "actorEnNm": "Ryoka Yuzuki",
+                "actorId": "00166529"
+              },
+              {
+                "actorNm": "미키 신이치로",
+                "actorEnNm": "Shinichiro Miki",
+                "actorId": "00116178"
+              },
+              {
+                "actorNm": "야나카 히로시",
+                "actorEnNm": "Hiroshi Yanaka",
+                "actorId": "00138079"
+              }
+            ]
+          },
+          "nation": "일본",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "지금으로부터 십 수년 뒤의 202X년. 그때 일본, 그리고 세계는 어떻게 변해있을 것인가?202x년 경제적, 군사적으로 초강대국이 된 동아시아공화국에서 쿠테타가 발생.  군부출신의 다타가타를 황제로 하는 [제국 고도무]가 탄생했다.  여기서는 어떤 무역회사의 수수께끼같은 여사장 장 레이카가 지구에서는 못 만드는 비밀기술을 제공함으로해서 압도적인 군사력을 손에 넣고,  주변 국가들을 차례로 점령해갔다. 일본도 맥이 빠지게 점령되어버려, 미국이나 UN에서도 아무런 대책이 없는 상태였다.  그러한 가운데 유일하게, 제국 고도무에 저항하는 존재로서 국제 비밀결사 [헤르메스 윈구스]가 있었다. 그 멤버의 쇼는 “신비한 능력”을 가진 젊은이로서 제국 고도무와 대결한다. 그러나 힘이 달려 절대절명의 위기에 빠져버린다. 그러한 쇼와 동료들을 구한 것은 인도의 동지들이었다. 그들은 인도의 고대 유적에서 발견된 구세주 재림의 예언을 쇼에게 전수해서 새로운 전략을 짜기 시작하는데...."
+              }
+            ]
+          },
+          "runtime": "119",
+          "rating": "12세관람가",
+          "genre": "판타지",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/30371",
+          "DOCID": "F30371"
+        },
+        {
+          "movieId": "F",
+          "movieSeq": "30372",
+          "title": " GFP 버니",
+          "titleEng": "",
+          "titleOrg": "GFP BUNNY ―タリウム少女のプログラム―",
+          "titleEtc": "GFP버니^GFP 버니^GFP BUNNY ―タリウム少女のプログラム―^GFP BUNNY",
+          "prodYear": "2012",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "유타카 츠치야",
+                "directorEnNm": "Yutaka Tsuchiya",
+                "directorId": "00166528"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "와타나베 마키코",
+                "actorEnNm": "Makiko Watanabe",
+                "actorId": "00098512"
+              },
+              {
+                "actorNm": "후루타치 간지",
+                "actorEnNm": "Kanji Furutachi",
+                "actorId": "00157593"
+              }
+            ]
+          },
+          "nation": "일본",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "",
+                "plotText": ""
+              }
+            ]
+          },
+          "runtime": "82",
+          "rating": "",
+          "genre": "",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/30372",
+          "DOCID": "F30372"
+        },
+        {
+          "movieId": "F",
+          "movieSeq": "30373",
+          "title": " 호두까기인형 3D",
+          "titleEng": "",
+          "titleOrg": "",
+          "titleEtc": "호두까기인형3D^호두까기인형 3D^THE NUTCRACKER IN 3D",
+          "prodYear": "2010",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "안드레이 곤잘롭스키",
+                "directorEnNm": "Andrei Konchalovsky",
+                "directorId": "00054817"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "존 터투로",
+                "actorEnNm": "John Turturro",
+                "actorId": "00049487"
+              },
+              {
+                "actorNm": "엘르 패닝",
+                "actorEnNm": "Elle Fanning",
+                "actorId": "00069542"
+              },
+              {
+                "actorNm": "나단 레인",
+                "actorEnNm": "Nathan Lane",
+                "actorId": "00105096"
+              },
+              {
+                "actorNm": "리차드 그랜트",
+                "actorEnNm": "Richard E. Grant",
+                "actorId": "00111450"
+              },
+              {
+                "actorNm": "프란시스 드 라 투어",
+                "actorEnNm": "Frances de la Tour",
+                "actorId": "00071521"
+              },
+              {
+                "actorNm": "찰리 로우",
+                "actorEnNm": "CHARLIE ROWE",
+                "actorId": "00154934"
+              }
+            ]
+          },
+          "nation": "미국,러시아",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "전세계가 기다려온 판타지 어드벤처가 시작된다! 크리스마스 이브, 오페라에 간 아빠와 엄마를 원망하며 우울해하던 메리는  삼촌으로부터 호두까기 인형을 선물 받고 기뻐하며 잠자리에 든다.  새벽녘, 시끄러운 소리에 잠에서 깬 메리는  호두까기 인형이 말을 할 줄 안다는 놀라운 사실을 알게 된다.  호두까기 인형에게 인형의 집 친구들을 소개받아 즐거운 시간을 보내다  크리스마스 트리 위에 살고 있는 눈꽃 여왕으로부터  그가 실은 마법에 걸린 왕자이며, 쥐마왕으로부터 왕국을 빼앗겼다는 것을 듣게 된 메리.  메리는 그의 마법을 풀어주고 고통 받는 사람들을 구하기 위한 모험을 떠나게 되는데…    올 겨울, 크리스마스의 기적이 이뤄진다!"
+              }
+            ]
+          },
+          "runtime": "96",
+          "rating": "전체관람가",
+          "genre": "가족,어드벤처,판타지",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/30373",
+          "DOCID": "F30373"
+        },
+        {
+          "movieId": "F",
+          "movieSeq": "31192",
+          "title": " 브레이크 블레이드5 : 최후의 명령",
+          "titleEng": "",
+          "titleOrg": "劇場版 ブレイク ブレイド 第五章/ 死線ノ涯",
+          "titleEtc": "브레이크블레이드5:최후의명령^브레이크 블레이드5 : 최후의 명령^劇場版 ブレイク ブレイド 第五章/ 死線ノ涯^브레이크블레이드5:최후의명령,브레이크블레이드5^Broken Blade 5",
+          "prodYear": "2011",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "아미노 테츠로",
+                "directorEnNm": "Tetsuro Amino",
+                "directorId": "00138928"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "호시 소이치로",
+                "actorEnNm": "Soichiro Hoshi",
+                "actorId": "00139096"
+              },
+              {
+                "actorNm": "사이토 치와",
+                "actorEnNm": "Chiwa Saito",
+                "actorId": "00062087"
+              },
+              {
+                "actorNm": "하바라 노부요시",
+                "actorEnNm": "Nobuyoshi Habara",
+                "actorId": "00144338"
+              },
+              {
+                "actorNm": "나카무라 유이치",
+                "actorEnNm": "Nakamura Yuichi",
+                "actorId": "00140545"
+              },
+              {
+                "actorNm": "카미야 히로시",
+                "actorEnNm": "Hiroshi Kamiya",
+                "actorId": "00167438"
+              }
+            ]
+          },
+          "nation": "일본",
+          "company": "Production I.G.,XEBEC",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "전쟁의 시대에 휘말린 죽마고우 네 명의 엇갈린 운명을 다룬 애니메이션 시리즈의 5편"
+              },
+              {
+                "plotLang": "한국어",
+                "plotText": "넘어서다― 전장의 불을 밝히는 불길한 상사(相似)아라칸 황야에서 격돌한 발드와 보르키스의 대대는, 서로에게 방대한 피해를 입고 부득이 하게 일시 후퇴 할 수 밖에 없게 된다. 점점 어려워지는 상황 속에서, 적의 부대 일부가 라이가트의 고향을 공격하려 한다는 정보를 입수한다. 동생을 구하기 위해, 모두의 제지에도 불구하고 단독행동에 나서는 라이가트였지만, 마을은 이미 공격 당한 후였다. 게다가, 마을에는 보르키스 대대가 진을 치고 기다리고 있었는데, 아테네스군 최강의 골렘 휴케리온 대 델핑의 일대일 승부가 시작된다."
+              }
+            ]
+          },
+          "runtime": "47",
+          "rating": "12세관람가",
+          "genre": "드라마,액션",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/31192",
+          "DOCID": "F31192"
+        },
+        {
+          "movieId": "A",
+          "movieSeq": "05938",
+          "title": " 거미의 땅",
+          "titleEng": "Tour of Duty (Geomiui ttang)",
+          "titleOrg": "",
+          "titleEtc": "거미의땅^거미의 땅^거미의땅^Tour of Duty (Geomiui ttang)",
+          "prodYear": "2012",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "김동령",
+                "directorEnNm": "Kim Dong-ryeong",
+                "directorId": "00042859"
+              },
+              {
+                "directorNm": "박경태",
+                "directorEnNm": "Park Gyeong-tae",
+                "directorId": "00042755"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "박인순",
+                "actorEnNm": "",
+                "actorId": ""
+              },
+              {
+                "actorNm": "안성자",
+                "actorEnNm": "",
+                "actorId": ""
+              },
+              {
+                "actorNm": "박묘연",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "㈜시네마달",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "철거를 앞둔 경기 북부의 미군 기지촌, 멀찌감치 포성과 전투헬기 소리가 메아리친다. 카메라는 이름 없는, 혹은 이름만 남은 무덤들이 그득한 숲을 지나 폐혀가 된 유령 마을로 내려온다. 마을에는 신체에 각인된 역사의 상흔을 안고 살아가는 세 명의 여인이 있다. 바비 엄마 박묘연은 30여 년간 선유리 선유분식에서 햄버거를 만들어 왔다. 박인순은 의정부 뺏벌의 쇠락한 좁은 골목길에서 폐휴지를 주워 그 위에 그림을 그린다. 그리고 흑인계 혼혈인 안성자가 있다. 그녀는 다시는 만날 수 없는 친구 세라를 회상한다. 거미의 땅 은 인물들의 분절된 기억을 따라, 망각된 기지촌의 공간 속에서 ‘의무의 여행’을 시작한다."
+              },
+              {
+                "plotLang": "영어",
+                "plotText": "There remains only silence in a US military camp town in the northern part of Gyeonggi province which will be demolished any time soon. In the town, three women are still living with pains engraved in their bodies. Aunt Bobby who used to make burgers in Seonyu-ri for 30 years; Ms. Insoon Park who used to collect scraps and draw paintings on them in the abandoned narrow alleys of Bbat-bul, Uijeongbu; and Ms. Sungja Ahn who is half-Korean and half-African American. Following the pieces of their memories, the film travels into the forgotten town to reveal the truth left behind."
+              }
+            ]
+          },
+          "runtime": "150",
+          "rating": "15세관람가",
+          "genre": "사회,인물",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/A/05938",
+          "DOCID": "A05938"
+        },
+        {
+          "movieId": "B",
+          "movieSeq": "05540",
+          "title": " 플래시백 메모리즈 3D",
+          "titleEng": "Flashback Memories",
+          "titleOrg": "フラッシュバックメモリ一ズ",
+          "titleEtc": "플래시백 메모리즈 3D^フラッシュバックメモリ一ズ^Flashback Memories^플래시백메모리즈3D,플래시백메모리즈,플래쉬백메모리즈^플래시백메모리즈3D^フラッシュバックメモリ一ズ^FlashbackMemories^플래시백메모리즈3D,플래시백메모리즈,플래쉬백메모리즈^",
+          "prodYear": "2012",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "마츠에 테츠아키",
+                "directorEnNm": "Tetsuaki Matsue",
+                "directorId": "00166507"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "GOMA",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "일본",
+          "company": "SPACE SHOWER NETWORKS INC.",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "호주원주민의 목관악기인 디제리두(didgeridoo) 연주가였던 고마. 고마는 갑작스런 사고로 인해 가족도 제대로 알아보지 못 할 정도의 기억상실증에 걸렸지만, 오랜 시간 악기를 연주해온 그의 몸은 악기의 리듬을 기억하고 있다. 다시 한 번 아티스트로서의 재기에 힘쓰는 고마의 다큐멘터리."
+              }
+            ]
+          },
+          "runtime": "72",
+          "rating": "",
+          "genre": "뮤직,인물",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/B/05540",
+          "DOCID": "B05540"
+        },
+        {
+          "movieId": "K",
+          "movieSeq": "30598",
+          "title": " 우리 잠시 멈춰요",
+          "titleEng": "(Uri jamsi meomchwoyo)",
+          "titleOrg": "",
+          "titleEtc": "우리잠시멈춰요^우리 잠시 멈춰요^우리잠시멈춰요^(Uri jamsi meomchwoyo)",
+          "prodYear": "2020",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "이경민",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "이수인",
+                "actorEnNm": "",
+                "actorId": ""
+              },
+              {
+                "actorNm": "김예원",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "자신이 신종 바이러스 코로나21에 감염 됐다는 사실을 모르는 최연지는 평소 마스크 착용을 답답해 해 마스크를 자주 벗고 다니지만 김유민은 바이러스 감염에 위험성을 느끼고 마스크를 잘 쓰고 다닌다. 최연지는 사회적 거리두기를 해달라는 말에도 자신은 상관 없을 거라는 생각을 가지며 카페, 식당을 간다. 김유민은 걱정은 되지만 최연지와 함께 동행을 하게 된다. 같이 갔지만 김유민은 기본 수칙을 잘 지키고 최연지는 마스크를 계속 벗고 기침을 계속한다. 마스크를 쓰라는 자신의 말을 듣지 않는 최연지에게 화가 난 김유민은 결국 최연지에게 화를"
+              }
+            ]
+          },
+          "runtime": "19",
+          "rating": "",
+          "genre": "드라마",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/K/30598",
+          "DOCID": "K30598"
+        }
+      ]
+    }
+  ]
+}

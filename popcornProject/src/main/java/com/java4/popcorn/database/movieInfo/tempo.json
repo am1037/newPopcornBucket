@@ -1,0 +1,217 @@
+{
+  "movieListResult": {
+    "totCnt": 95385,
+    "source": "영화진흥위원회",
+    "movieList": [
+      {
+        "movieCd": "20231217",
+        "movieNm": "칠중주: 홍콩 이야기",
+        "movieNmEn": "The Septet: The Story of Hong Kong",
+        "prdtYear": "2020",
+        "openDt": "20230511",
+        "typeNm": "장편",
+        "prdtStatNm": "개봉",
+        "nationAlt": "홍콩",
+        "genreAlt": "드라마",
+        "repNationNm": "홍콩",
+        "repGenreNm": "드라마",
+        "directors": [
+          {
+            "peopleNm": "홍금보"
+          },
+          {
+            "peopleNm": "허안화"
+          },
+          {
+            "peopleNm": "담가명"
+          },
+          {
+            "peopleNm": "원화평"
+          },
+          {
+            "peopleNm": "두기봉"
+          },
+          {
+            "peopleNm": "임영동"
+          },
+          {
+            "peopleNm": "서극"
+          }
+        ],
+        "companys": []
+      },
+      {
+        "movieCd": "20231613",
+        "movieNm": "여기가 바로 섹스민박",
+        "movieNmEn": "",
+        "prdtYear": "2023",
+        "openDt": "",
+        "typeNm": "장편",
+        "prdtStatNm": "기타",
+        "nationAlt": "한국",
+        "genreAlt": "성인물(에로),드라마",
+        "repNationNm": "한국",
+        "repGenreNm": "성인물(에로)",
+        "directors": [
+          {
+            "peopleNm": "성운아"
+          }
+        ],
+        "companys": [
+          {
+            "companyCd": "20217321",
+            "companyNm": "주식회사 바나나픽쳐스"
+          }
+        ]
+      },
+      {
+        "movieCd": "20231515",
+        "movieNm": "부장님 : 제 아내와 해주세요",
+        "movieNmEn": "JYOUSINIAIOSII",
+        "prdtYear": "2022",
+        "openDt": "20230510",
+        "typeNm": "장편",
+        "prdtStatNm": "개봉",
+        "nationAlt": "일본",
+        "genreAlt": "성인물(에로),드라마,멜로/로맨스",
+        "repNationNm": "일본",
+        "repGenreNm": "성인물(에로)",
+        "directors": [
+          {
+            "peopleNm": "나가에"
+          }
+        ],
+        "companys": []
+      },
+      {
+        "movieCd": "20200154",
+        "movieNm": "킬링 로맨스",
+        "movieNmEn": "Killing Romance",
+        "prdtYear": "2021",
+        "openDt": "20230414",
+        "typeNm": "장편",
+        "prdtStatNm": "개봉",
+        "nationAlt": "한국",
+        "genreAlt": "코미디",
+        "repNationNm": "한국",
+        "repGenreNm": "코미디",
+        "directors": [
+          {
+            "peopleNm": "이원석"
+          }
+        ],
+        "companys": [
+          {
+            "companyCd": "20130188",
+            "companyNm": "(주)영화사 이창"
+          },
+          {
+            "companyCd": "20230131",
+            "companyNm": "쇼트케이크(주)"
+          }
+        ]
+      },
+      {
+        "movieCd": "20231489",
+        "movieNm": "발정난 요가 강사의 알몸 수업",
+        "movieNmEn": "KOINIO TIITA HITODUMAYOGA",
+        "prdtYear": "2021",
+        "openDt": "20230510",
+        "typeNm": "장편",
+        "prdtStatNm": "개봉",
+        "nationAlt": "일본",
+        "genreAlt": "성인물(에로),드라마,멜로/로맨스",
+        "repNationNm": "일본",
+        "repGenreNm": "성인물(에로)",
+        "directors": [
+          {
+            "peopleNm": "디렉터 O"
+          }
+        ],
+        "companys": []
+      },
+      {
+        "movieCd": "2023C441",
+        "movieNm": "피스트 오브 콘도르",
+        "movieNmEn": "THE FIST OF THE CONDOR",
+        "prdtYear": "2023",
+        "openDt": "",
+        "typeNm": "온라인전용",
+        "prdtStatNm": "기타",
+        "nationAlt": "기타",
+        "genreAlt": "액션",
+        "repNationNm": "기타",
+        "repGenreNm": "액션",
+        "directors": [],
+        "companys": []
+      },
+      {
+        "movieCd": "20231688",
+        "movieNm": "조인트",
+        "movieNmEn": "Joint",
+        "prdtYear": "2021",
+        "openDt": "",
+        "typeNm": "장편",
+        "prdtStatNm": "기타",
+        "nationAlt": "일본",
+        "genreAlt": "범죄,스릴러,드라마,액션",
+        "repNationNm": "일본",
+        "repGenreNm": "범죄",
+        "directors": [],
+        "companys": []
+      },
+      {
+        "movieCd": "20231687",
+        "movieNm": "무용",
+        "movieNmEn": "",
+        "prdtYear": "2020",
+        "openDt": "",
+        "typeNm": "단편",
+        "prdtStatNm": "기타",
+        "nationAlt": "한국",
+        "genreAlt": "드라마",
+        "repNationNm": "한국",
+        "repGenreNm": "드라마",
+        "directors": [],
+        "companys": []
+      },
+      {
+        "movieCd": "20231686",
+        "movieNm": "섹스G스팟- 여성 감독이 여성을 위한",
+        "movieNmEn": "Women of Sex",
+        "prdtYear": "2008",
+        "openDt": "",
+        "typeNm": "장편",
+        "prdtStatNm": "개봉예정",
+        "nationAlt": "프랑스",
+        "genreAlt": "드라마",
+        "repNationNm": "프랑스",
+        "repGenreNm": "드라마",
+        "directors": [
+          {
+            "peopleNm": "멜라니 로랑"
+          },
+          {
+            "peopleNm": "토니 마샬"
+          }
+        ],
+        "companys": []
+      },
+      {
+        "movieCd": "2023C421",
+        "movieNm": "피의 성배",
+        "movieNmEn": "The Chalice of Blood",
+        "prdtYear": "2022",
+        "openDt": "",
+        "typeNm": "온라인전용",
+        "prdtStatNm": "기타",
+        "nationAlt": "기타",
+        "genreAlt": "전쟁,드라마,액션",
+        "repNationNm": "기타",
+        "repGenreNm": "전쟁",
+        "directors": [],
+        "companys": []
+      }
+    ]
+  }
+}

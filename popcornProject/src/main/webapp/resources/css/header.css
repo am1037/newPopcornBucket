@@ -1,0 +1,239 @@
+	* {
+		font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum,
+			sans-serif;
+	}
+/* 공통속성 */
+body {
+	font-size: 100%;
+    width: 1200px;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	word-break: break-all;
+}
+
+/* 헤더 시작 */
+.header {
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+}	
+
+/* 헤더 내 요소들 */
+.header_content {
+	margin: 0 auto;
+	justify-content: center;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	text-align: center;
+}
+
+/*  헤더 내 요소 */
+.nav {
+	margin: 30px 0 0 0;
+	width: 100%;
+	max-width: 1200px;
+	border-bottom: 2px solid #FFF39C;
+	text-align: center;
+	position: sticky;
+	top: 0;
+	background-color: #fcfcfc;
+	vertical-align: middle;
+    align-items: center;
+	z-index: 3;
+	opacity: 0.9;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+/* 로고 div */
+.logo {
+	text-align: center;
+    align-content: center;
+	padding: 0 20px 10px 27px;
+}
+
+/* 로고 이미지 */
+.logo img {
+    max-width:200px;
+    max-height:50px;
+}
+
+/*  헤더 내 ul 요소들 */
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+/*  메뉴 ul*/
+.header_menu {
+	align-items: center;
+	text-align: center;
+	width: 530px;
+}
+
+/*  메뉴 li */
+.li_menu {
+	width: 18%;
+	min-width: 80px;
+	text-decoration: none;
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+    padding-bottom: 10px;
+	padding-right: 5px;
+}
+
+/*  메인 메뉴 li 글자 */
+.nav span.main_menu {
+	font-weight: 700;
+	font-size: 1.1em;
+	color: #222;
+	display: inline-block;
+}
+
+/*  서브 메뉴 */
+.menu_sub{
+	display: flex;
+	position: absolute;
+	padding: 0;
+	top: 62px;
+	left: 0;
+	width: 100%;
+	display: none;
+	text-decoration: none;
+	background-color: #FFF39C;
+	height: 65px;
+	text-align: center;
+    align-content: center;
+	vertical-align: middle;
+}
+
+/*  li a 링크 줄 지움 */
+li a {
+	text-decoration: none;
+  }
+
+/*  서브 메뉴 li */
+.menu_sub ul li {
+	display: inline-block;
+	margin: 0;
+	padding: 0 30px;
+	line-height: 65px;
+}
+
+/*  서브 메뉴 li 글자 */
+.menu_sub ul li span{
+	font-size: 15px;
+	font-family: 'Noto Sans KR', 'CJONLYONENEW', '맑은 고딕', '돋움', Dotum, sans-serif;
+	font-weight: 800;
+	color: black;
+	padding: 25px 0 25px 0;
+}
+
+/*  메인 메뉴 마우스 hover시 서브 메뉴 블록 나타남*/
+.header_menu>li:hover .menu_sub{
+	display: block;
+}
+
+/*  메인 메뉴 li 마우스 hover시 해당 메뉴 색 표시 */
+.nav .li_menu:hover .main_menu{
+	cursor: pointer;
+	color: #FF00FF;
+}
+
+/*  메인 메뉴 li에 마우스 hover시 해당 메뉴 밑줄 표시 */
+.li_menu:after {/*after 가상요소*/
+	display:block;/*a요소를 블록 요소라고 선언*/
+	content: '';/*comtent안은 밑줄 디자인을 위해 비워두세요.*/
+	border-bottom: solid 2px #FF00FF;
+	transform: scaleX(0);/*크기를 0으로 줌으로써 평상시엔 밑줄 없음*/
+	transition: transform 100ms ease-in-out; /*변형 방식*/
+ }
+
+.li_menu:hover .main_menu{
+	color: #FF00FF;
+	transform: scaleX(1);
+  }
+
+  .li_menu:hover:after {
+	transform: scaleX(1);/*a 속성에 hover시 after를 기존 크기로 변경*/
+ }
+
+  /*  서브 메뉴 span에 마우스 hover시 해당 메뉴 색 표시 */
+.menu_sub span:hover {
+	cursor: pointer;
+	font-weight: bolder;
+	color: rgb(235, 177, 28);
+  }
+
+
+ /*  검색어 관련 */
+.search-box .d-flex{
+    max-height: 30px;
+    border: 1px solid #A4A4A4;
+    border-radius: 30px;
+    width: 90%;
+	min-width: 200px;
+	margin: 0 10px 10px 20px;
+	display: flex;
+    align-content: center;
+  }
+
+  .search-txt{
+    display: flex;
+	padding-left: 5px;
+    border:none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 1em;
+    line-height: 30px;
+  }
+
+  .search-btn {
+	padding: 5px 0 0 10px;
+	width: 20px;
+	height: 20px;
+  }
+ 
+/*  로그인 관련 */
+.login {
+    padding-bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+.login ul {
+	width: 100%;
+	min-width: 120px;
+}
+
+.login li {
+	text-decoration: none;
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+	padding: 8px 0;
+	width: 42%;
+	min-width: 60px;
+	max-width: 60px;
+}
+
+.login span {
+	font-size: 0.8em;
+	font-weight: 500;
+	color: gray;
+}
+
+.login span:hover {
+	font-weight: 700;
+	cursor: pointer;
+	color: gray;
+}

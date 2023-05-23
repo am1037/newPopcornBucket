@@ -1,0 +1,231 @@
+{
+  "Query": "",
+  "KMAQuery": "",
+  "TotalCount": 4,
+  "Data": [
+    {
+      "CollName": "kmdb_new2",
+      "TotalCount": 4,
+      "Count": 4,
+      "Result": [
+        {
+          "movieId": "B",
+          "movieSeq": "00123",
+          "title": " IN THE LABYRINTH",
+          "titleEng": "",
+          "titleOrg": "",
+          "titleEtc": "IN THE LABYRINTH^INTHELABYRINTH^INTHELABYRINTH^INTHELABYRINTH^",
+          "prodYear": "1967",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "ROMAN KROITOR",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "캐나다",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "",
+                "plotText": ""
+              }
+            ]
+          },
+          "runtime": "",
+          "rating": "",
+          "genre": "",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/B/00123",
+          "DOCID": "B00123"
+        },
+        {
+          "movieId": "F",
+          "movieSeq": "00123",
+          "title": " 에레나(엘레나와 남자들)",
+          "titleEng": "",
+          "titleOrg": "Elena et les hommes",
+          "titleEtc": "에레나(엘레나와남자들)^에레나(엘레나와 남자들)^Elena et les hommes^에레나(1960)^Elena et les hommes",
+          "prodYear": "1956",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "장 르누아르",
+                "directorEnNm": "Jean Renoir",
+                "directorId": "00087247"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "잉그리드 버그만",
+                "actorEnNm": "Ingrid Bergman",
+                "actorId": "00049673"
+              },
+              {
+                "actorNm": "장 마라이",
+                "actorEnNm": "Jean Marais",
+                "actorId": "00087213"
+              },
+              {
+                "actorNm": "멜 파라",
+                "actorEnNm": "Mel Ferrer",
+                "actorId": "00101833"
+              },
+              {
+                "actorNm": "쟝 리차드",
+                "actorEnNm": "Jean Richard",
+                "actorId": "00153669"
+              },
+              {
+                "actorNm": "줄리엣 그레코",
+                "actorEnNm": "Juliette Greco",
+                "actorId": "00092451"
+              },
+              {
+                "actorNm": "피에르 베르틴",
+                "actorEnNm": "Pierre Bertin",
+                "actorId": "00151222"
+              },
+              {
+                "actorNm": "도라 돌",
+                "actorEnNm": "Dora Doll",
+                "actorId": "00067984"
+              }
+            ]
+          },
+          "nation": "프랑스,이탈리아",
+          "company": "Franco London Films,Les Films Gibe,Electra Compagn",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "1880년대, 폴란드 왕자의 아내였다 젊은 과부가 된 엘레나는 수많은 남자들의 주목을 받으며 파리에서 생활하고 있다. 세계 대전이 일어나기 전, 그녀는 아름다운 장군 롤랑을 만나게 된다. 롤랑은 엘레나에게 글로와르를 정복하는 것을 도와달라고 요청하고, 엘레나는 롤랑을 위해 음모와 책략을 꾸미는데 가담한다. (시네마테크 부산)"
+              }
+            ]
+          },
+          "runtime": "95",
+          "rating": "",
+          "genre": "코메디,드라마",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/00123",
+          "DOCID": "F00123"
+        },
+        {
+          "movieId": "K",
+          "movieSeq": "00123",
+          "title": " 오몽녀",
+          "titleEng": "Oh Mong-nyeo (Omongnyeo)",
+          "titleOrg": "",
+          "titleEtc": "오몽녀^오몽녀^Oh Mong-nyeo (Omongnyeo)",
+          "prodYear": "1937",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "나운규",
+                "directorEnNm": "Na Un-kyoo",
+                "directorId": "00038451"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "윤봉춘",
+                "actorEnNm": "Yun Bong-chun",
+                "actorId": "00004718"
+              },
+              {
+                "actorNm": "노재신",
+                "actorEnNm": "Noh Jae-sin",
+                "actorId": "00005081"
+              },
+              {
+                "actorNm": "김일해",
+                "actorEnNm": "Kim Il-hae",
+                "actorId": "00008590"
+              },
+              {
+                "actorNm": "임운학",
+                "actorEnNm": "Yim Woon-hak",
+                "actorId": "00004881"
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "경성촬영소",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "갯가에 사는 김봉사는 수양딸 오몽녀를 키우면서 비록 늙었을 망정 성숙한 딸의 피부에서 욕정을 느끼곤 한다. 한편 갯벌의 젊은 사내 들이 오몽녀에게 야심을 품고 몰려드는데,어느날 오몽녀는 그 사내 들의 겁탈에 직면하여 갯벌로 도망쳐 배에 숨고 사내들이 뒤쫓아 온다. 김봉사도 달려오나 배는 이미 떠난 뒤였다. 미래를 약속한 젊은사공 김일해와 같이 노를 저으며 두 사람만의 낙원을 찾아서."
+              },
+              {
+                "plotLang": "영어",
+                "plotText": "Blind man Kim who lives by the river has a foster daughter Oh mong-nyeo.  He is old and aged, but still feels sexual urges upon touching the skin of his grown daughter.  Meanwhile, young men working on the foreshores attempt to court Oh mong-nyeo and swarm around her.  One day, Oh mong-nyeo is faced with men trying to rape her and runs away to the foreshore to jump into one of the boats.  The men and her blind father run after her but the boat has left already. Oh mong-nyeo gets engaged to the young ferryman Kim Il-hae and the two row off into the horizon in search of their paradise."
+              }
+            ]
+          },
+          "runtime": "",
+          "rating": "",
+          "genre": "드라마,문예",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/K/00123",
+          "DOCID": "K00123"
+        },
+        {
+          "movieId": "I",
+          "movieSeq": "00123",
+          "title": " 성냥팔이",
+          "titleEng": "",
+          "titleOrg": "",
+          "titleEtc": "성냥팔이^^성냥팔이^",
+          "prodYear": "2005",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "",
+                "plotText": ""
+              }
+            ]
+          },
+          "runtime": "",
+          "rating": "",
+          "genre": "",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/I/00123",
+          "DOCID": "I00123"
+        }
+      ]
+    }
+  ]
+}

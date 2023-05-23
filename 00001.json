@@ -1,0 +1,308 @@
+{
+  "Query": "",
+  "KMAQuery": "",
+  "TotalCount": 5,
+  "Data": [
+    {
+      "CollName": "kmdb_new2",
+      "TotalCount": 5,
+      "Count": 5,
+      "Result": [
+        {
+          "movieId": "A",
+          "movieSeq": "00001",
+          "title": " 아시아는 하나",
+          "titleEng": "(Asianeun hana)",
+          "titleOrg": "",
+          "titleEtc": "아시아는하나^아시아는 하나^아시아는하나^(Asianeun hana)",
+          "prodYear": "1987",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "국립영화제작소",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "86 아시안게임(86 서울아시아경기대회) 공식기록영화.10개 소주제 옴니버스 형식."
+              }
+            ]
+          },
+          "runtime": "110",
+          "rating": "",
+          "genre": "스포츠",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/A/00001",
+          "DOCID": "A00001"
+        },
+        {
+          "movieId": "F",
+          "movieSeq": "00001",
+          "title": " 나의 청춘 마리안느",
+          "titleEng": "Marianne of My Youth",
+          "titleOrg": "Marianne de ma jeunesse",
+          "titleEtc": "나의청춘마리안느^나의 청춘 마리안느^Marianne de ma jeunesse^나의청춘마리안느, 나의 청춘 마리안느, Marianne de Ma Jeunesse, Marianne of My Youth, 나의 靑春 마리안느^Marianne of My Youth^Marianne de ma jeunesse^나의 靑春 마리안느^나의 청춘 마리안느",
+          "prodYear": "1955",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "줄리앙 뒤비비에",
+                "directorEnNm": "Julien Duvivier",
+                "directorId": "00092410"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "마리안느 홀드",
+                "actorEnNm": "Marianne Hold",
+                "actorId": "00099445"
+              },
+              {
+                "actorNm": "피에르 바넥",
+                "actorEnNm": "Pierre Vaneck",
+                "actorId": "00109677"
+              },
+              {
+                "actorNm": "애디 버버",
+                "actorEnNm": "Ady Berber",
+                "actorId": "00052541"
+              },
+              {
+                "actorNm": "클로드 아라곤",
+                "actorEnNm": "Claude Aragon",
+                "actorId": "00063203"
+              },
+              {
+                "actorNm": "프리드릭 도민",
+                "actorEnNm": "Friedrich Domin",
+                "actorId": "00072467"
+              },
+              {
+                "actorNm": "제랄드 팔렉",
+                "actorEnNm": "Gerard Fallec",
+                "actorId": "00073805"
+              },
+              {
+                "actorNm": "길 바이댈",
+                "actorEnNm": "Gil Vidal",
+                "actorId": "00074115"
+              },
+              {
+                "actorNm": "이사벨 피아",
+                "actorEnNm": "Isabelle Pia",
+                "actorId": "00084840"
+              },
+              {
+                "actorNm": "자크 드 패로디",
+                "actorEnNm": "Jacques de Feraudy",
+                "actorId": "00085610"
+              },
+              {
+                "actorNm": "장 갈랜드",
+                "actorEnNm": "Jean Galland",
+                "actorId": "00087169"
+              },
+              {
+                "actorNm": "장 요넬",
+                "actorEnNm": "Jean Yonnel",
+                "actorId": "00087284"
+              },
+              {
+                "actorNm": "장-프랑수아 배일리",
+                "actorEnNm": "Jean-Francois Bailly",
+                "actorId": "00087357"
+              },
+              {
+                "actorNm": "미카엘 엔데",
+                "actorEnNm": "Michael Ande",
+                "actorId": "00102089"
+              }
+            ]
+          },
+          "nation": "프랑스",
+          "company": "Filmsonor S.A.,Regina-Film,Royal-Produktion,Allfra",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "하일리겐슈타트 교외 호반에 위치한 기숙학교에 뱅상(피에르 바넥)이 전학 온다. 붙임성 없고 내향적인 그는 학생들과 잘 어울리지 못하고 두고 온 어머니를 그리워한다. 학교에서 사육하는 사슴을 돌보는 것이 그의 유일한 낙이다. 호수 건너편에 고성(古城)이 있다는 것을 알게 된 뱅상은 호기심을 갖고 물어보지만 동료 학생들은 시큰둥할 뿐이다. 어느 날 읍내로 간 뱅상은 고성에서 왔다는 노인과 함께 있는 검은 옷을 입은 소녀(마리안느 홀드)를 보게 된다. 소녀에게 끌린 그는 보트를 저어 고성을 찾아간다. 안으로 들어가 보니 마리안느라는 그 소녀가 노인과의 강요된 결혼 때문에 갇혀 있는 자신을 구해 달라고 호소한다."
+              }
+            ]
+          },
+          "runtime": "105",
+          "rating": "",
+          "genre": "멜로드라마,미스터리",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/00001",
+          "DOCID": "F00001"
+        },
+        {
+          "movieId": "K",
+          "movieSeq": "00001",
+          "title": " 의리적 구토(義理的仇討)",
+          "titleEng": "Fight for Justice (Uilijeog guto)",
+          "titleOrg": "",
+          "titleEtc": "의리적구토(義理的仇討)^의리적 구토(義理的仇討)^의리적구토, 의리적구투, 의리적 구토^Fight for Justice (Uilijeog guto)^의리적 구투(義理的仇鬪)",
+          "prodYear": "1919",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "김도산",
+                "directorEnNm": "Kim Do-san",
+                "directorId": "00012228"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "김도산",
+                "actorEnNm": "Kim Do-san",
+                "actorId": "00012228"
+              },
+              {
+                "actorNm": "이경환",
+                "actorEnNm": "Lee Gyeong-hwan",
+                "actorId": "00033576"
+              },
+              {
+                "actorNm": "윤혁",
+                "actorEnNm": "Yun Hyeok",
+                "actorId": "00026345"
+              },
+              {
+                "actorNm": "김영덕",
+                "actorEnNm": "Kim Yeong-deok",
+                "actorId": "00040600"
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "단성사",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "계모슬하에서 불우하게 자라나온 송산은 선친의 유산까지 탈취하려고 노리는 계모일파에게 온갖 박해와 고통을 받는다. 심지어 생명의 위험까지 느끼면서도 가문과 선친의 명예를 위해 은인자중하던 중, 송산은 마침내 의형제를 맺고 있던 죽산과 친구인 매초를 만난다. 그는 더러운 사회악을 뿌리뽑고 참다운 가문의 명예를 지키기 위해 정의로 싸울 것을 그들로부터 권유받는다. 송산은 드디어 정의의 칼을 뽑아 계모일파의 무리들을 물리치고 가문의 평화를 찾는다."
+              },
+              {
+                "plotLang": "영어",
+                "plotText": "Song-san has had an unfortunate childhood, raised by a step-mother.  He is abused and exploited by his step-mother and her family who want his father's inheritance.  Nevertheless, he remains quiet to uphold the reputation of his father and his family, even when his life is threatened by them.  Amidst his struggles, he meets Juk-san and Mae-cho, who are friends and blood brothers.  They request that he fight for his family's reputation and purge the society of its evil.  Song-san finally decides to draw out his sword of justice and defeats his step-mother and her gang.  Peace is restored in his family."
+              }
+            ]
+          },
+          "runtime": "",
+          "rating": "",
+          "genre": "드라마,활극,연쇄극",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/K/00001",
+          "DOCID": "K00001"
+        },
+        {
+          "movieId": "I",
+          "movieSeq": "00001",
+          "title": " 우비소년",
+          "titleEng": "",
+          "titleOrg": "",
+          "titleEtc": "우비소년^우비 소년^우비소년^우비소년^",
+          "prodYear": "2001",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "양정화",
+                "actorEnNm": "Yang Jeong-hwa",
+                "actorId": "00135875"
+              },
+              {
+                "actorNm": "최준영",
+                "actorEnNm": "Choe Junyeong",
+                "actorId": "00137407"
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "㈜인츠닷컴,로이비주얼",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "",
+                "plotText": ""
+              }
+            ]
+          },
+          "runtime": "",
+          "rating": "",
+          "genre": "코메디",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/I/00001",
+          "DOCID": "I00001"
+        },
+        {
+          "movieId": "B",
+          "movieSeq": "00001",
+          "title": " FILM CLASSICS : THE ORIGINS OF CINEMA VOL.5",
+          "titleEng": "FILM CLASSICS : THE ORIGINS OF CINEMA VOL.5",
+          "titleOrg": "",
+          "titleEtc": "FILMCLASSICS:THEORIGINSOFCINEMAVOL.5^FILM CLASSICS : THE ORIGINS OF CINEMA VOL.5^FILMCLASSICS:THEORIGINSOFCINEMAVOL.5^FILM CLASSICS : THE ORIGINS OF CINEMA VOL.5",
+          "prodYear": "",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "D.W. 그리피스 외",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "미국",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "",
+                "plotText": ""
+              }
+            ]
+          },
+          "runtime": "",
+          "rating": "",
+          "genre": "",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/B/00001",
+          "DOCID": "B00001"
+        }
+      ]
+    }
+  ]
+}

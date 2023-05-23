@@ -1,0 +1,356 @@
+{
+  "Query": "",
+  "KMAQuery": "",
+  "TotalCount": 4,
+  "Data": [
+    {
+      "CollName": "kmdb_new2",
+      "TotalCount": 4,
+      "Count": 4,
+      "Result": [
+        {
+          "movieId": "F",
+          "movieSeq": "04629",
+          "title": " 폭겁경정",
+          "titleEng": "",
+          "titleOrg": "",
+          "titleEtc": "폭겁경정^SCARRED MEMORY^폭겁경정^폭겁경정^SCARREDMEMORY^폭겁경정^",
+          "prodYear": "1996",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "양본희",
+                "directorEnNm": "Raymond Leung",
+                "directorId": "00126809"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "임달화",
+                "actorEnNm": "Simon Yam Tat-Wah",
+                "actorId": "00051980"
+              },
+              {
+                "actorNm": "엽옥경",
+                "actorEnNm": "Veronica Yip",
+                "actorId": "00127005"
+              }
+            ]
+          },
+          "nation": "홍콩",
+          "company": "",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "홍콩에 사는 아이비는 유능하고 지적인 여의사로 동료의사를 멋진 애인으로 두고 있다. 어느날 그녀는 건달들에게 강간을 당하고 애인은 그녀의 친구와 잠자리를 같이 한다. 이성을 잃은 아이비는 당분간 병원을 휴직하고 마카오로 떠난다. 그곳에서 갑작스런 사고를 당해 기억을 잃은 아룡이란 남자를 만나게 되고 순수한 그에게 자신도 모르게 끌린다. 조금씩 기억을 찾아가는 아룡은 자신이 폭력조직의 일원이었다는 어두운 과거를 떠올리게 된다. 그런 와중에도 아룡과 아이비는 서로를 사랑하게 된다. 홍콩으로 돌아온 아이비와 그녀를 따라온 아룡. 그러나 아룡의 과거 동료가 찾아오고 그의 공격을 막다가 오히려 그를 죽이게 된다. 여러 가지 일을 겪는 중 과거 아이비를 강간했던 범인이 바로 아룡이라는 사실을 아이비는 알게 된다. 아룡은 이 사실을 알고 일부러 조직 상대파와의 싸움으로 죽음을 선택한다."
+              }
+            ]
+          },
+          "runtime": "89",
+          "rating": "연소자불가",
+          "genre": "드라마",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/F/04629",
+          "DOCID": "F04629"
+        },
+        {
+          "movieId": "K",
+          "movieSeq": "04629",
+          "title": " 서편제",
+          "titleEng": "Sopyonje (Seopyeonje)",
+          "titleOrg": "",
+          "titleEtc": "서편제^서편제^Sopyonje (Seopyeonje)",
+          "prodYear": "1993",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "임권택",
+                "directorEnNm": "Im Kwon-taek",
+                "directorId": "00001811"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "김명곤",
+                "actorEnNm": "Kim Myung-kon",
+                "actorId": "00000239"
+              },
+              {
+                "actorNm": "오정해",
+                "actorEnNm": "Oh Jeong-hae",
+                "actorId": "00000534"
+              },
+              {
+                "actorNm": "김규철",
+                "actorEnNm": "Kim Kyu-chul",
+                "actorId": "00000235"
+              },
+              {
+                "actorNm": "신새길",
+                "actorEnNm": "Sin Sae-gil",
+                "actorId": "00004340"
+              },
+              {
+                "actorNm": "안병경",
+                "actorEnNm": "An Byung-kyung",
+                "actorId": "00000181"
+              },
+              {
+                "actorNm": "최동준",
+                "actorEnNm": "Choi Dong-joon",
+                "actorId": "00000153"
+              },
+              {
+                "actorNm": "최종원",
+                "actorEnNm": "Choi Chong-won",
+                "actorId": "00000655"
+              },
+              {
+                "actorNm": "강선숙",
+                "actorEnNm": "Gang Seon-suk",
+                "actorId": "00014606"
+              },
+              {
+                "actorNm": "주상호",
+                "actorEnNm": "Ju Sang-ho",
+                "actorId": "00005383"
+              },
+              {
+                "actorNm": "이인옥",
+                "actorEnNm": "Lee In-ock",
+                "actorId": "00001026"
+              },
+              {
+                "actorNm": "유명순",
+                "actorEnNm": "Yoo Myeong-sun",
+                "actorId": "00000864"
+              },
+              {
+                "actorNm": "김경란",
+                "actorEnNm": "Kim Kyung-ran",
+                "actorId": "00000330"
+              },
+              {
+                "actorNm": "박예숙",
+                "actorEnNm": "Bark Yae-sook",
+                "actorId": "00000659"
+              },
+              {
+                "actorNm": "정미경",
+                "actorEnNm": "Chung Mi-kyung",
+                "actorId": "00000115"
+              },
+              {
+                "actorNm": "조학자",
+                "actorEnNm": "Cho Hak-ja",
+                "actorId": "00000078"
+              },
+              {
+                "actorNm": "이석구",
+                "actorEnNm": "Lee Suk-koo",
+                "actorId": "00000601"
+              },
+              {
+                "actorNm": "유형관",
+                "actorEnNm": "Yu Hyeong-gwan",
+                "actorId": "00004036"
+              },
+              {
+                "actorNm": "김기천",
+                "actorEnNm": "Kim Ki-chun",
+                "actorId": "00009371"
+              },
+              {
+                "actorNm": "방은미",
+                "actorEnNm": "Bang Eun-mi",
+                "actorId": "00023329"
+              },
+              {
+                "actorNm": "고동업",
+                "actorEnNm": "Go Dong-eop",
+                "actorId": "00008713"
+              },
+              {
+                "actorNm": "박길수",
+                "actorEnNm": "Park Gil-su",
+                "actorId": "00014134"
+              },
+              {
+                "actorNm": "손영호",
+                "actorEnNm": "",
+                "actorId": ""
+              },
+              {
+                "actorNm": "송영탁",
+                "actorEnNm": "Song Yeong-tak",
+                "actorId": "00008510"
+              },
+              {
+                "actorNm": "권호웅",
+                "actorEnNm": "Gwon Ho-ung",
+                "actorId": "00012139"
+              },
+              {
+                "actorNm": "이은숙",
+                "actorEnNm": "Lee Eun-suk",
+                "actorId": "00035499"
+              },
+              {
+                "actorNm": "오연실",
+                "actorEnNm": "O Yeon-sil",
+                "actorId": "00020466"
+              },
+              {
+                "actorNm": "윤혜영",
+                "actorEnNm": "Yun Hye-yeong",
+                "actorId": "00009770"
+              },
+              {
+                "actorNm": "조영재",
+                "actorEnNm": "",
+                "actorId": ""
+              },
+              {
+                "actorNm": "김유경",
+                "actorEnNm": "Kim Yugyeong",
+                "actorId": "00213269"
+              },
+              {
+                "actorNm": "김송",
+                "actorEnNm": "Kim Song",
+                "actorId": "00021352"
+              },
+              {
+                "actorNm": "고승유",
+                "actorEnNm": "",
+                "actorId": ""
+              },
+              {
+                "actorNm": "김지훈",
+                "actorEnNm": "Kim Ji-hun",
+                "actorId": "00032163"
+              },
+              {
+                "actorNm": "문혜지",
+                "actorEnNm": "MUN Hye-ji",
+                "actorId": "00047686"
+              },
+              {
+                "actorNm": "㈜MTM",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "태흥영화㈜",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "1960년대 초, 어느 산골 주막에 30대 남자가 도착한다. 그는 주막 여인의 판소리에 회상에 잠긴다. 어린 시절 동네에 소리꾼인 유봉(김명곤)이 찾아온다. 동네 아낙인 동호(김규철)의 어머니는 유봉과 사랑에 빠져 마을을 떠난다. 유봉의 딸 송화(오정해)와 넷이 살던 중, 동호의 어머니는 아기를 낳다 죽는다. 유봉은 송화에게 소리를 가르치고, 동호에게는 북치는 법을 가르친다. 그러다가 전쟁으로 인해 생활이 어려워지고, 소리를 가르치기 위해 쉴 틈 없이 다그치는 유봉을 이해하지 못하는 동호는 유봉과 싸우고 떠나 버린다. 동호가 떠난 뒤 송화가 식음을 전폐하고 소리도 포기한 채 그를 기다리자, 유봉은 한이 맺혀야 진정한 소리를 할 수 있다는 생각에 송화의 눈을 멀게 만든다. 동호는 낙산거사(안병경)를 만나 송화의 소식을 듣고 수소문 끝에 대폿집에서 송화와 재회한다. 둘은 어떤 말도 하지 않고 한 명은 소리를, 또 한 명은 북을 치면서 밤새 한을 풀어낸다. 아침이 되고 동호와 송화는 말없이 헤어진다. 송화는 한 소녀를 앞세우고 길을 떠난다."
+              },
+              {
+                "plotLang": "영어",
+                "plotText": "It is early 1960s. A man in his thirties arrives at a small tavern in the mountain village. He is lost in memories at the sound of pansori sung by the tavern owner. In his memory, he is young and Yu-bong (Kim Myung-kon), a pansori singer comes to the village. A village woman, Dong-ho's (Kim Kyu-chul) mom, falls in love with Yu-bong and leaves the village with Dong-ho and Yubong. Dong-ho and his mother, Yu-bong and his daughter Song-hwa (Oh Jeong-hae), form a family. But Dong-ho's mom passes away giving birth to a baby. Yu-bong teaches pansori to Song-hwa and drumming to Dong-ho. Then the war breaks out and as it becomes more difficult to live, Dong-ho can't stand the way Yu-bong pushes Song-hwa and him to learn pansori. Eventually, Dong-ho gets into a quarrel with Yu-bong and leaves the town. After Dong-ho leaves, Song-hwa refuses food and drink, just waiting for him to return. Seeing this, Yu-bong makes Song-hwa become blind believing that one can truly learn to sing pansori only when the person has great resentment in life. Dong-ho coincidentally comes across Naksangeosa (Ahn Byung-kyung) and hears what happened to Song-hwa. After a long search for her whereabouts, he finally meets Song-hwa at a groggery. Without any word, they do pansori. Song-hwa sings and Dong-ho drums for her, resolving their deepest sorrow. When the morning arrives, Dong-ho and Song-hwa part one another without words. Song-hwa takes off with a girl guiding her way."
+              }
+            ]
+          },
+          "runtime": "112",
+          "rating": "중학생가",
+          "genre": "시대극/사극",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/K/04629",
+          "DOCID": "K04629"
+        },
+        {
+          "movieId": "A",
+          "movieSeq": "04629",
+          "title": " 최완수의 우리미술 바로보기",
+          "titleEng": "(Choi Wan-suui urimisul baro bogi)",
+          "titleOrg": "",
+          "titleEtc": "최완수의우리미술바로보기^최완수의 우리미술 바로보기^EBS우리미술바로보기-한국미술^(Choi Wan-suui urimisul baro bogi)^1집 제1부 실사구시의 시대, 추사 김정희^1집 제2부 진경문화를 마감한, 혜원 신윤복^1집 제3부 정조와 단원 김홍도^1집 제4부 꺼지지 않는 신화, 이중섭^2집 제4부 고려 팔만대장경^2집 제1부 다보탑과 석가탑...",
+          "prodYear": "2001",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "",
+                "directorEnNm": "",
+                "directorId": ""
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "대한민국",
+          "company": "EBS",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "한국어",
+                "plotText": "미술 뒤에 숨겨진 정치, 경제 및 사회사적 의미를 살펴보는 프로그램"
+              }
+            ]
+          },
+          "runtime": "40",
+          "rating": "",
+          "genre": "문화,역사",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/A/04629",
+          "DOCID": "A04629"
+        },
+        {
+          "movieId": "B",
+          "movieSeq": "04629",
+          "title": " Miss Dundee and Her Performing Dongs",
+          "titleEng": "",
+          "titleOrg": "Miss Dundee et ses chiens savants",
+          "titleEtc": "Miss Dundee and Her Performing Dongs^Miss Dundee et ses chiens savants^MissDundeeandHerPerformingDongs^MissDundeeetseschienssavants^",
+          "prodYear": "1902",
+          "directors": {
+            "director": [
+              {
+                "directorNm": "앨리스 가이",
+                "directorEnNm": "Alice Guy",
+                "directorId": "00151306"
+              }
+            ]
+          },
+          "actors": {
+            "actor": [
+              {
+                "actorNm": "",
+                "actorEnNm": "",
+                "actorId": ""
+              }
+            ]
+          },
+          "nation": "프랑스",
+          "company": "Societe des Etablissements L. Gaumont",
+          "plots": {
+            "plot": [
+              {
+                "plotLang": "",
+                "plotText": ""
+              }
+            ]
+          },
+          "runtime": "3",
+          "rating": "",
+          "genre": "인물",
+          "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/B/04629",
+          "DOCID": "B04629"
+        }
+      ]
+    }
+  ]
+}

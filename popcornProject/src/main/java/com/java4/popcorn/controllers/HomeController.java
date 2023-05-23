@@ -4,10 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Handles requests for the application home page.
@@ -19,26 +20,17 @@ public class HomeController {
 
 	//alarm
 	@RequestMapping(method = RequestMethod.GET, value = "/")
-	public String home(Model model) {
+	public String home(HttpServletRequest request,
+					   Model model) {
 		//사용자 특정 관련.. 세션과 쿠키 등?
+		HttpSession session = request.getSession();
+
+		if(session.getAttribute("kakaoId") == null){
+			System.out.println("kakaoId is null");
+		}else {
+			System.out.println("kakaoId is " + session.getAttribute("kakaoId"));
+		}
 		return "home";
-	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/alarm_main")
-	public String alarm_main(Model model) {
-		return "alarm/alarm_main";
-	}
-
-	//theater
-	@RequestMapping(method = RequestMethod.GET, value = "/theater_main")
-	public String theater_main(Model model) {
-		return "theater/theater_main";
-	}
-
-	//movie
-	@RequestMapping(method = RequestMethod.GET, value = "/movie_main")
-	public String movie_main(Model model) {
-		return "movie/movie_main";
 	}
 
 }

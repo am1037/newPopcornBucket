@@ -1,0 +1,65 @@
+{
+  "props": {
+    "pageProps": {
+      "pageContext": {
+        "commonContext": {
+          "locale": "ko",
+          "uaClass": "os_other  pc",
+          "responsiveView": true,
+          "app": "web",
+          "os": "Other",
+          "mobile": false,
+          "supportNavigation": false,
+          "supportFilePicker": true,
+          "supportExecUrlScheme": false,
+          "supportMarketUrlScheme": true,
+          "supportRefererMetaTag": false,
+          "showHeader": true,
+          "showFooter": true,
+          "linkParams": {
+            "app_type": "web"
+          },
+          "_csrf": "b6c73756-6145-4d56-afd4-3f183ae937f0",
+          "kage_file_max_size": 100,
+          "upload_kage_url": "https://up-api1-kage.kakao.com/up/kaccount-p/",
+          "p": "9DSFWxpIoz1ze61w8Ovj33hfOwpAIZTzy7gCYYoHfe4"
+        },
+        "context": {
+          "webType": "web",
+          "defaultEmail": null,
+          "showStaySignIn": true,
+          "defaultStaySignIn": false,
+          "appendStaySignedIn": false,
+          "defaultCountryCode": "KR_82",
+          "showQrLogin": true,
+          "showWebTalkLogin": false,
+          "needCaptcha": false,
+          "showIpSecurity": false,
+          "loginUrl": "/login?app_type=web&continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8887%252FkakaoTest%26through_account%3Dtrue%26client_id%3D04b500e325879415373f7b3fa5ff0e86",
+          "linkParams": {
+            "continue": [
+              "https://kauth.kakao.com/oauth/authorize?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8887%2FkakaoTest&through_account=true&client_id=04b500e325879415373f7b3fa5ff0e86"
+            ],
+            "lang": [
+              "ko"
+            ]
+          },
+          "requests": {
+            "check_daum_sso": [
+              "get",
+              "https://logins.daum.net/accounts/endpoint/favicon.ico"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "page": "/login/login",
+  "query": {},
+  "buildId": "Xo5cKJUIt3_GjSagGdiJh",
+  "assetPrefix": "https://accounts.kakaocdn.net",
+  "nextExport": true,
+  "isFallback": false,
+  "gip": true,
+  "scriptLoader": []
+}

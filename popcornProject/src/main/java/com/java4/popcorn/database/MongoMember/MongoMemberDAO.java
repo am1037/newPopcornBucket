@@ -25,6 +25,21 @@ public class MongoMemberDAO {
             MongoDatabase db = mongoClient.getDatabase(dbName);
             MongoCollection<Document> collection = db.getCollection("member");
             Document doc = collection.find(Filters.eq("id", id))
+                                     .projection(Projections.excludeId())
+                                     .first();
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.readValue(doc.toJson(), MongoMemberVO.class);
+        }catch (Exception e){
+            System.out.println("No such member");
+            return null;
+        }
+    }
+
+    public MongoMemberVO selectOneByKakaoId(String id) {
+        try(MongoClient mongoClient = MongoClients.create(url)) {
+            MongoDatabase db = mongoClient.getDatabase(dbName);
+            MongoCollection<Document> collection = db.getCollection("member");
+            Document doc = collection.find(Filters.eq("kakao_id", id))
                     .projection(Projections.excludeId())
                     .first();
             ObjectMapper mapper = new ObjectMapper();
