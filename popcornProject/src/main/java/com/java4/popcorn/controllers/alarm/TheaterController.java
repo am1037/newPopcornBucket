@@ -27,7 +27,7 @@ public class TheaterController {
     List<TheaterVO> theaterList;
     Map<String, TheaterVO> theaterMap;
     Set<String> regionSet;
-    Map<String, List<TheaterVO>> theaterMapByRegion = new HashMap<>();
+    Map<String, List<TheaterVO>> theaterMapByRegion;
 
     public TheaterController(TheaterDAO theaterDAO, MongoMemberDAO mongoMemberDAO) {
         this.theaterDAO = theaterDAO;
@@ -38,12 +38,15 @@ public class TheaterController {
     /*
     sql로 바꿔야합니다!! 근데 지금은 그냥 java.util 친구들이 더 다루기 쉬우니까 ㅎ
      */
+    @Deprecated
     public void setProperties(){
         System.out.println("TheaterController initializing...");
-        theaterList = theaterDAO.selectAllTheaterCode();
 
+        theaterList = theaterDAO.selectAllTheaterCode();
         theaterMap = new HashMap<>();
         regionSet = new HashSet<>();
+        theaterMapByRegion = new HashMap<>();
+
         for (TheaterVO theater : theaterList) {
             regionSet.add(theater.getTheater_region());
             theaterMap.put(theater.getTheater_id(), theater);

@@ -1,9 +1,11 @@
 package com.java4.popcorn.controllers.alarm;
 
+import com.java4.popcorn.controllers.SharedPropertiesStore;
 import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.screen.ScreenVO;
 import com.java4.popcorn.database.theater.TheaterVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,28 +21,25 @@ public class MovieController {
     ScreenDAO screenDAO;
     final
     MongoMemberDAO mongoMemberDAO;
+    final
+    SharedPropertiesStore store;
 
-    Map<String, String> movieOnScreen = new HashMap<>();
-    public MovieController(ScreenDAO screenDAO, MongoMemberDAO mongoMemberDAO) {
+    Map<String, String> movieOnScreen;
+    public MovieController(ScreenDAO screenDAO, MongoMemberDAO mongoMemberDAO, SharedPropertiesStore store) {
         this.screenDAO = screenDAO;
         this.mongoMemberDAO = mongoMemberDAO;
+        this.store = store;
         setProperties();
     }
 
     /*
     sql로 바꿔야합니다!! 근데 지금은 그냥 java.util 친구들이 더 다루기 쉬우니까 ㅎ
      */
+
     public void setProperties(){
         System.out.println("MovieController initializing...");
 
-        List<TheaterVO> theaterVOs = screenDAO.selectAllTheaterCode();
-        List<ScreenVO> screenVOs = new ArrayList<>();
-        for(TheaterVO theaterVO : theaterVOs){
-            screenVOs.addAll(screenDAO.selectByTheater(theaterVO.getTheater_id()));
-        }
-        for (ScreenVO screenVO : screenVOs) {
-            movieOnScreen.put(screenVO.getMovie_id(), screenVO.getTitle());
-        }
+        movieOnScreen = store.getMovieOnScreen();
         //movieSoon
         //TODO
         //movieOld

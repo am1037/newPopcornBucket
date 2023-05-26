@@ -66,7 +66,10 @@
     </c:forEach>
 
     favoriteList.forEach((item) => {
-        document.getElementById('checkbox_' + item).checked = true;
+        let element = document.getElementById('checkbox_' + item)
+        if(element != null) {
+            element.checked = true;
+        }
     })
 
     $('#btn-apply').click(function (){

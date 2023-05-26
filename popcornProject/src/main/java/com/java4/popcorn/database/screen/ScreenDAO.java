@@ -28,11 +28,11 @@ public class ScreenDAO {
         this.kmdbAPI = kmdbAPI;
     }
 
-    public List<ScreenVO> selectByTheaterAndDate(String theater, String data){
+    public List<ScreenVO> selectByTheaterAndDate(String theater, String date){
         try {
             Map<String, String> map = new HashMap<>();
             map.put("theater_id", theater);
-            map.put("data", data);
+            map.put("date", date);
             return my.selectList("ScreenDAO.selectByTheaterAndDate", map);
         }catch (Exception e){
             e.printStackTrace();
@@ -308,5 +308,13 @@ public class ScreenDAO {
         }
 
         return sb.toString();
+    }
+
+    public List<ScreenVO> selectByTheaterAndDateAndMovieId(String theater, String day, String movie) {
+        Map<String, String> map = new HashMap<>();
+        map.put("theater_id", theater);
+        map.put("date", day);
+        map.put("movie_id", movie);
+        return my.selectList("ScreenDAO.selectByTheaterAndDateAndMovieId", map);
     }
 }

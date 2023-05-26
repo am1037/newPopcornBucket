@@ -12,6 +12,8 @@ package com.java4.popcorn.controllers.admin;
 import com.java4.popcorn.api.account.kakao.MyLittleKakaoAPI;
 import com.java4.popcorn.api.kmdb.KmdbAPI;
 import com.java4.popcorn.api.line.message.LineAPI;
+import com.java4.popcorn.controllers.SharedPropertiesStore;
+import com.java4.popcorn.controllers.alarm.MovieController;
 import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
 import com.java4.popcorn.database.MongoMember.MongoMemberVO;
 import com.java4.popcorn.database.screen.ScreenVO;
@@ -20,6 +22,7 @@ import com.java4.popcorn.database.cgv.CGV;
 import com.java4.popcorn.database.cgv.Schedule;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.theater.TheaterDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,8 +39,11 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Stream;
 
+
 @Controller
 public class AdminController {
+    final SharedPropertiesStore store;
+
     final CGV cgv;
     final ScreenDAO screenDAO;
     final TheaterDAO theaterDAO;
@@ -47,7 +53,8 @@ public class AdminController {
     final MyLittleKakaoAPI myLittleKakaoAPI;
     final MongoMemberDAO mongoMemberDAO;
 
-    public AdminController(CGV cgv, ScreenDAO screenDAO, TheaterDAO theaterDAO, KmdbAPI kmdbAPI, AdminFileHandler adminFileHandler, LineAPI lineAPI, MyLittleKakaoAPI myLittleKakaoAPI, MongoMemberDAO mongoMemberDAO) {
+    public AdminController(SharedPropertiesStore store, CGV cgv, ScreenDAO screenDAO, TheaterDAO theaterDAO, KmdbAPI kmdbAPI, AdminFileHandler adminFileHandler, LineAPI lineAPI, MyLittleKakaoAPI myLittleKakaoAPI, MongoMemberDAO mongoMemberDAO) {
+        this.store = store;
         this.cgv = cgv;
         this.screenDAO = screenDAO;
         this.theaterDAO = theaterDAO;
@@ -68,6 +75,16 @@ public class AdminController {
         model.addAttribute("lastday", lastday);
         return "admin/admin";
     }
+
+    @Autowired
+    MovieController mc;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/refreshProperties")
+    public void refresh(Model model){
+        mc.setProperties();
+        //return "admin/admin";
+    }
+
 
     Map<String, List<String>> map;
     @RequestMapping(method = RequestMethod.GET, value = "/admin/CheckFiles")
@@ -157,27 +174,12 @@ public class AdminController {
         List<String> list = new ArrayList<>();
         theaterDAO.selectTheaterByRegion(region).forEach(vo -> list.add(vo.getTheater_id()));
         for (String theater_id : list) {
-            for (String i : betweenTwoDate(dateFrom, dateUntil)) {
+            for (String i : store.betweenTwoDate(dateFrom, dateUntil)) {
                 cgvCrawlOneDay(theater_id, i);
             }
         }
 
         System.out.println("cgvCrawlFromUntilRegion Done");
-    }
-
-    private List<String> betweenTwoDate(String date1, String date2){
-        List<String> list = new ArrayList<>();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        try {
-            Date date = sdf.parse(date1);
-            while (!sdf.format(date).equals(date2)){
-                list.add(sdf.format(date));
-                date = new Date(date.getTime() + (1000 * 60 * 60 * 24));
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return list;
     }
     @RequestMapping(method = RequestMethod.GET, value = "/admin/crawlOne")
     public void cgvCrawlOneTheater(
@@ -186,7 +188,7 @@ public class AdminController {
             @RequestParam("theater") String theater_id){
         System.out.println("cgvCrawlOne");
 
-        for(String i : betweenTwoDate(dateFrom, dateUntil)){
+        for(String i : store.betweenTwoDate(dateFrom, dateUntil)){
             cgvCrawlOneDay(theater_id, i);
         }
 

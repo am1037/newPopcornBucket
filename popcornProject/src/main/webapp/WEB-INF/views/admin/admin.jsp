@@ -31,6 +31,7 @@
 </div>
 <br>
 <br>
+
 <div id="be_careful">be careful when you hit these buttons!!!!<br>
     <button id="btn_truncateScreenTable">Truncate screen table</button>
     <button id="btn_emptyFolder">Empty Folder</button><br>
@@ -40,6 +41,19 @@
 
 <div id="div1">div for buttons without parameters<br>
     <button id="btn_CheckFiles">Check Existing Files</button>
+    <button id="btn_refresh_properties">Refresh Properties</button><br>
+    <script>
+        $("#btn_refresh_properties").click(function () {
+            $.ajax({
+                url: "admin/refreshProperties",
+                type: "GET",
+                success: function (data) {
+                    console.log("success");
+                    $("#result").html(data);
+                }
+            });
+        });
+    </script>
 </div>
 <br>
 <br>

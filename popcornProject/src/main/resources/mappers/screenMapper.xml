@@ -17,6 +17,11 @@
         select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date}
     </select>
 
+<!--    //selectByTheaterAndDateAndMovieId-->
+    <select id="selectByTheaterAndDateAndMovieId" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date} and movie_id = #{movie_id}
+    </select>
+
     <update id="updateMovieIdByTitle">
         update popcorn.movie_screen
         set movie_id = #{movie_id}
