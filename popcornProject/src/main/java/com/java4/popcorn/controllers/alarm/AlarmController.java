@@ -12,5 +12,10 @@ public class AlarmController {
         return "alarm/alarm/alarm_main";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "alarm/navbar")
+    public String alarm_navbar(Model model) {
+        return "alarm/navbar";
+    }
+
 
 }

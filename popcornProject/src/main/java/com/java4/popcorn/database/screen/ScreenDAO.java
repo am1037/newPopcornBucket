@@ -1,22 +1,33 @@
 package com.java4.popcorn.database.screen;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.java4.popcorn.api.kmdb.KmdbAPI;
+import com.java4.popcorn.api.kmdb.KmdbMovieSimpleInfoResponseVO;
 import com.java4.popcorn.database.cgv.CGV;
 import com.java4.popcorn.database.theater.TheaterVO;
 import com.java4.popcorn.database.cgv.Schedule;
+import org.apache.ibatis.exceptions.PersistenceException;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 @Component
 public class ScreenDAO {
-    @Autowired
+    final
     SqlSessionTemplate my;
 
     List<TheaterVO> theaterCodes;
+
+    public ScreenDAO(SqlSessionTemplate my, KmdbAPI kmdbAPI) {
+        this.my = my;
+        this.kmdbAPI = kmdbAPI;
+    }
+
     public List<ScreenVO> selectByTheaterAndDate(String theater, String data){
         try {
             Map<String, String> map = new HashMap<>();
@@ -40,41 +51,146 @@ public class ScreenDAO {
         return null;
     }
 
-    public void insertJson(File file){
+    public String insertJson(File file){
         try {
             System.out.println(file.toString());
             ObjectMapper om = new ObjectMapper();
             Schedule schedule = om.readValue(file, Schedule.class);
-            schedule.getMovieScreenList().forEach(this::insert);
+            StringBuilder sb = new StringBuilder();
+            int count = 0;
+            for(ScreenVO vo : schedule.getMovieScreenList()){
+                try {
+                    my.insert("ScreenDAO.insertOne", vo);
+                    count++;
+                }catch (DuplicateKeyException e){
+                    //System.out.println("already exist");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            return sb.append(count).append("/").append(schedule.getMovieScreenList().size()).toString();
         } catch (Exception e) {
             e.printStackTrace();
+            return "error while reading file";
         }
     }
-    public void insert(ScreenVO ms){
+    public int insert(ScreenVO ms){
         try {
             //System.out.println(ms);
             my.insert("ScreenDAO.insertOne", ms);
-        } catch (Exception e) {
+        } catch (DuplicateKeyException e) {
+            System.out.println("already exist");
+            return 1;
+        } catch (Exception e){
             e.printStackTrace();
+            return 0;
         }
+        return -1;
     }
 
 
-    public int insertExistingFiles(){
+    public Map<String, String> insertExistingFiles(){
         String path = "schedules/";
         File dir = new File(path);
         File[] files = dir.listFiles();
-        int count = 0;
         if(files == null){
             System.out.println("no files");
-            return 0;
+            return null;
         }
+        Map<String, String> map = new HashMap<>();
         for (File file : files) {
             if (file.isFile()) {
-                insertJson(file);
-                count++;
+                map.put(file.getName(), insertJson(file));
             }
         }
+        return map;
+    }
+
+    public int updateMovieIdByTitle(String title, String movie_id){
+        Map<String, String> map = new HashMap<>();
+        map.put("title", title);
+        map.put("movie_id", movie_id);
+        try {
+            return my.update("ScreenDAO.updateMovieIdByTitle", map);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+
+    /*
+    나중에 파일 출력 부분도 분리하기!
+     */
+    final
+    KmdbAPI kmdbAPI;
+    public int updateMovieId(){
+        Map<String, String> titleToDOCIDMap = new HashMap<>();
+        Map<String, KmdbMovieSimpleInfoResponseVO> errorMap = new HashMap<>();
+        Map<String, KmdbMovieSimpleInfoResponseVO> warnMap = new HashMap<>();
+        Map<String, Integer> titleAndRuntimeMap = getOnScreenTitleAndRuntimeList();
+        for (String title : titleAndRuntimeMap.keySet()) {
+            KmdbMovieSimpleInfoResponseVO kmdbVo = kmdbAPI.getMovieInfoByTitle(title);
+            //System.out.println(title+" : "+kmdbVo);
+            if (kmdbVo.getTotalCount() == 1) {
+                //System.out.println(title+" : "+kmdbVo.getData().get(0).getResult().get(0).getDOCID());
+                titleToDOCIDMap.put(title, kmdbVo.getData().get(0).getResult().get(0).getDOCID());
+            } else {
+                try {
+                    Integer runtime = titleAndRuntimeMap.get(title);
+                    kmdbVo.getMovies(0).forEach(m -> {
+                        Integer kmdbRuntime = Integer.parseInt(m.getRuntime().trim());
+                        if (kmdbRuntime.equals(runtime)) {
+                            titleToDOCIDMap.put(title, m.getDOCID());
+                            warnMap.put(title, kmdbVo);
+                        }
+                    });
+                } catch (NumberFormatException e){
+                    System.out.println("NumberFormatException : "+title);
+                    System.out.println("e.getMessage() : "+e.getMessage());
+                } catch (NullPointerException e){
+                    System.out.println("NullPointerException : "+title);
+                    System.out.println("e.getMessage() : "+e.getMessage());
+                }
+            }
+            if (!titleToDOCIDMap.containsKey(title)) {
+                errorMap.put(title, kmdbVo);
+            }
+        }
+        int count = 0;
+        for (String key : titleToDOCIDMap.keySet()) {
+            try {
+                count += updateMovieIdByTitle(key, titleToDOCIDMap.get(key));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        //for errorMap
+        System.out.println("Error List");
+        for (String key : errorMap.keySet()) {
+            System.out.println(key);
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                mapper.writeValue(new File("error/" + key + ".json"), errorMap.get(key));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Error List End");
+
+        //for warnMap
+        System.out.println("Warn List");
+        for (String key : warnMap.keySet()) {
+            System.out.println(key);
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                mapper.writeValue(new File("error/warn_" + key + ".json"), warnMap.get(key));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Warn List End");
+
         return count;
     }
 
@@ -101,7 +217,7 @@ public class ScreenDAO {
 
     public List<TheaterVO> selectAllTheaterCode(){
         try {
-            return my.selectList("ScreenDAO.selectAllTheater");
+            return my.selectList("TheaterDAO.selectAllTheater");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,13 +232,23 @@ public class ScreenDAO {
         }
     }
 
-
-    @Deprecated
-    public List<ScreenVO> selectAll(){
+    public Map<String, Integer> getOnScreenTitleAndRuntimeList(){
         try {
             List<ScreenVO> msl = my.selectList("ScreenDAO.selectAll");
-            System.out.println(msl);
-            return msl;
+            Map<String, Integer> map = new HashMap<>();
+            for (ScreenVO ms : msl){
+                map.put(ms.getTitle(), ms.getRuntime());
+            }
+            return map;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public List<ScreenVO> selectAll(){
+        try {
+            //System.out.println(msl);
+            return my.selectList("ScreenDAO.selectAll");
         } catch (Exception e) {
             e.printStackTrace();
         }

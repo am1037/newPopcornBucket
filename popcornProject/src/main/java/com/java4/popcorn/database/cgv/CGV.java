@@ -24,10 +24,10 @@ public class CGV {
     WebDriver driver;
     Map<String, List<String>> map = new HashMap<>();
 
-    public Map<String, List<String>> getMap() {
-        return map;
-    }
-
+//    public static void main(String[] args) {
+//        CGV cgv = new CGV();
+//        cgv.crawl("0004", "20230525");
+//    }
     public Schedule crawl(String theater, String date) {
         /*
         theater ex)0004와
@@ -54,6 +54,9 @@ public class CGV {
             for (WebElement we : coltimesList) {
                 String movieTitle = we.findElement(By.className("info-movie"))
                         .findElement(By.tagName("strong")).getText();
+                String runtime = we.findElement(By.className("info-movie"))
+                        .findElements(By.tagName("i")).get(2).getText().trim().replace("분", "");
+                System.out.println(movieTitle + " " + runtime);
                 List<WebElement> typehallList = we.findElements(By.className("type-hall"));
                 for (WebElement h : typehallList) {
                     List<WebElement> showList = h.findElement(By.className("info-timetable"))
@@ -67,6 +70,7 @@ public class CGV {
                         String[] tempo = s.getText().split("\n");
                         ms.setTime(tempo[0]);
                         ms.setDate(date);
+                        ms.setRuntime(Integer.valueOf(runtime));
                         msList.add(ms);
                         //System.out.println(ms);
                     }
@@ -122,5 +126,9 @@ public class CGV {
             System.out.println("no files");
         }
         return null;
+    }
+
+    public Map<String, List<String>> getMap() {
+        return map;
     }
 }

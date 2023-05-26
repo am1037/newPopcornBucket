@@ -1,4 +1,4 @@
-package com.java4.popcorn.controllers;
+package com.java4.popcorn.controllers.admin;
 
 
 /*
@@ -9,34 +9,54 @@ package com.java4.popcorn.controllers;
 3. kobis 또는 kmdb로부터 lazy하게 콜 하는 버튼?
  */
 
+import com.java4.popcorn.api.account.kakao.MyLittleKakaoAPI;
+import com.java4.popcorn.api.kmdb.KmdbAPI;
+import com.java4.popcorn.api.line.message.LineAPI;
+import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
+import com.java4.popcorn.database.MongoMember.MongoMemberVO;
+import com.java4.popcorn.database.screen.ScreenVO;
 import com.java4.popcorn.database.theater.TheaterVO;
 import com.java4.popcorn.database.cgv.CGV;
 import com.java4.popcorn.database.cgv.Schedule;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.theater.TheaterDAO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Stream;
 
 @Controller
 public class AdminController {
-    @Autowired
-    CGV cgv;
-    @Autowired
-    ScreenDAO screenDAO;
-    @Autowired
-    TheaterDAO theaterDAO;
+    final CGV cgv;
+    final ScreenDAO screenDAO;
+    final TheaterDAO theaterDAO;
+    final KmdbAPI kmdbAPI;
+    final AdminFileHandler adminFileHandler;
+    final LineAPI lineAPI;
+    final MyLittleKakaoAPI myLittleKakaoAPI;
+    final MongoMemberDAO mongoMemberDAO;
+
+    public AdminController(CGV cgv, ScreenDAO screenDAO, TheaterDAO theaterDAO, KmdbAPI kmdbAPI, AdminFileHandler adminFileHandler, LineAPI lineAPI, MyLittleKakaoAPI myLittleKakaoAPI, MongoMemberDAO mongoMemberDAO) {
+        this.cgv = cgv;
+        this.screenDAO = screenDAO;
+        this.theaterDAO = theaterDAO;
+        this.kmdbAPI = kmdbAPI;
+        this.adminFileHandler = adminFileHandler;
+        this.lineAPI = lineAPI;
+        this.myLittleKakaoAPI = myLittleKakaoAPI;
+        this.mongoMemberDAO = mongoMemberDAO;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/admin")
     public String admin(Model model){
@@ -104,9 +124,10 @@ public class AdminController {
     public void cgvInsertExistingFiles(){
         System.out.println("cgvInsertAllToDB");
 
-        int i = screenDAO.insertExistingFiles();
+        Map<String, String> map = screenDAO.insertExistingFiles();
 
-        System.out.println("cgvInsertAllToDB Done : " + i);
+        System.out.println("cgvInsertAllToDB Done : ");
+        map.forEach((k,v)-> System.out.println(k+" : "+v));
     }
     @RequestMapping(method = RequestMethod.GET, value = "/admin/insertFromUntil")
     public void cgvInsertFromUntil(
@@ -135,12 +156,8 @@ public class AdminController {
 
         List<String> list = new ArrayList<>();
         theaterDAO.selectTheaterByRegion(region).forEach(vo -> list.add(vo.getTheater_id()));
-
-        int i1 = Integer.parseInt(dateFrom);
-        int i2 = Integer.parseInt(dateUntil);
-
-        for(int i = i1; i <= i2; i++){
-            for(String theater_id : list){
+        for (String theater_id : list) {
+            for (String i : betweenTwoDate(dateFrom, dateUntil)) {
                 cgvCrawlOneDay(theater_id, i);
             }
         }
@@ -148,6 +165,20 @@ public class AdminController {
         System.out.println("cgvCrawlFromUntilRegion Done");
     }
 
+    private List<String> betweenTwoDate(String date1, String date2){
+        List<String> list = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        try {
+            Date date = sdf.parse(date1);
+            while (!sdf.format(date).equals(date2)){
+                list.add(sdf.format(date));
+                date = new Date(date.getTime() + (1000 * 60 * 60 * 24));
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     @RequestMapping(method = RequestMethod.GET, value = "/admin/crawlOne")
     public void cgvCrawlOneTheater(
             @RequestParam("dateFrom") String dateFrom,
@@ -155,18 +186,14 @@ public class AdminController {
             @RequestParam("theater") String theater_id){
         System.out.println("cgvCrawlOne");
 
-        int i1 = Integer.parseInt(dateFrom);
-        int i2 = Integer.parseInt(dateUntil);
-
-        for(int i = i1; i <= i2; i++){
+        for(String i : betweenTwoDate(dateFrom, dateUntil)){
             cgvCrawlOneDay(theater_id, i);
         }
 
         System.out.println("cgvCrawlOne Done");
     }
 
-    private void cgvCrawlOneDay(@RequestParam("theater") String theater_id, int i) {
-        String date = String.valueOf(i);
+    private void cgvCrawlOneDay(@RequestParam("theater") String theater_id, String date) {
         System.out.println("crawling theater: "+theater_id+", date: "+date);
         try {
             Schedule schedule = cgv.crawl(theater_id, date);
@@ -188,4 +215,69 @@ public class AdminController {
         System.out.println("insertTheaterCodes Done");
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/insertMovieId")
+    public void insertMovieId(Model model){
+        System.out.println("insertMovieId");
+
+        screenDAO.updateMovieId();
+
+        System.out.println("insertMovieId Done");
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/insertMovieIdOne")
+    public void insertMovieIdOne(@RequestParam("title") String movie_title,
+                                 @RequestParam("DOCID") String movie_DOCID){
+        System.out.println("insertMovieIdOne");
+
+        screenDAO.updateMovieIdByTitle(movie_title, movie_DOCID);
+
+        System.out.println("insertMovieIdOne Done");
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/readMovieIdErrorJsons")
+    public String readMovieIdErrorJsons(Model model){
+        List<String> list = adminFileHandler.readErrorJsonsAsStringList();
+        model.addAttribute("list", list);
+        return "admin/error/readMovieIdErrorJsons";
+    }
+
+    //테스트 용도입니다!!!! 근데 지금 급한데 바꾸면 또 안 될까봐 sendMessageTest라고 이름 못 바꾸겟음 ㅎ
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/sendMessage")
+    public void sendMessage(HttpServletRequest request,
+                            Model model){
+        System.out.println("sendMessage");
+        String kakaoId = request.getSession().getAttribute("kakaoId").toString();
+        try {
+            MongoMemberVO member = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+            String lineId = member.getLine_id();
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("즐겨찾기 한 극장 목록입니다");
+            Map<String, String> map = new HashMap<>();
+            List<TheaterVO> list = theaterDAO.getTheaterCodes();
+            for (TheaterVO vo : list) {
+                map.put(vo.getTheater_id(), vo.getTheater_name());
+            }
+            for (String str : member.getTheater_favorites()){
+                sb.append("\n").append(map.get(str));
+            }
+            sb.append("\n\n즐겨찾기 한 영화 목록입니다");
+            Map<String, String> map2 = new HashMap<>();
+            List<ScreenVO> list2 = screenDAO.selectAll();
+            for (ScreenVO vo : list2) {
+                map2.put(vo.getMovie_id(), vo.getTitle());
+            }
+            for (String str : member.getMovie_favorites()){
+                sb.append("\n").append(map2.get(str));
+            }
+
+            System.out.println(lineAPI.sendMessageTest(sb.toString(), lineId));
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("sendMessage Done");
+
+        //return "admin/sendMessage";
+    }
 }

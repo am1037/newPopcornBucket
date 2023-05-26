@@ -8,7 +8,7 @@
     </select>
     <insert id="insertOne">
         insert into popcorn.movie_screen
-        values(#{title}, #{theater}, #{screen}, #{time}, #{date}, #{theater_id}, #{movie_id})
+        values(#{title}, #{theater}, #{screen}, #{time}, #{date}, #{theater_id}, #{movie_id}, #{runtime})
     </insert>
     <select id="selectByTheater" resultType="com.java4.popcorn.database.screen.ScreenVO">
         select * from popcorn.movie_screen ms where theater_id = #{theater_id}
@@ -16,6 +16,12 @@
     <select id="selectByTheaterAndDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
         select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date}
     </select>
+
+    <update id="updateMovieIdByTitle">
+        update popcorn.movie_screen
+        set movie_id = #{movie_id}
+        where title = #{title}
+    </update>
 
     <update id="truncateScreen">
         truncate table popcorn.movie_screen

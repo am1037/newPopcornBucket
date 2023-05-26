@@ -1,5 +1,8 @@
-package com.java4.popcorn.api.account.kakao;
+package com.java4.popcorn.controllers;
 
+import com.java4.popcorn.api.account.kakao.KakaoGetTokenResponse;
+import com.java4.popcorn.api.account.kakao.KakaoTokenInfoResponse;
+import com.java4.popcorn.api.account.kakao.MyLittleKakaoAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,23 +37,35 @@ public class KakaoTestController {
     }
 
     @RequestMapping("/kakaoTest/kakaoLogin")
-    public void kakaoGetToken(@RequestParam("code") String code,
+    public String kakaoGetToken(@RequestParam(value = "code", required = false) String code,
                               Model model){
+        if(code == null){
+            return "kakaoTest";
+        }
         System.out.println("kakaoLogin code : " + code);
         System.out.println(baseUrl + "kakaoLogin");
         KakaoGetTokenResponse kgtr = kakaoAPI.kakaoGetToken(code, baseUrl + "kakaoLogin");
         token = kgtr.getAccess_token();
         System.out.println("access_token : " + kgtr.getAccess_token());
+
+        return "kakaoTest";
     }
 
     @RequestMapping("/kakaoTest/kakaoLogout")
-    public void kakaoLogout(@RequestParam("code") String code,
-                            Model model){
+    public String kakaoLogout(@RequestParam(value = "code", required = false) String code,
+                              HttpServletRequest request,
+                              Model model){
+        if(code == null){
+            return "kakaoTest";
+        }
         System.out.println("kakaoLogout code : " + code);
         System.out.println(baseUrl + "kakaoLogout");
         KakaoGetTokenResponse kgtr = kakaoAPI.kakaoGetToken(code, baseUrl + "kakaoLogout");
         token = kgtr.getAccess_token();
         System.out.println(kakaoAPI.kakaoLogout(kgtr));
+        request.getSession().removeAttribute("kakaoId");
+
+        return "kakaoTest";
     }
 
     @RequestMapping("/kakaoTest/kakaoGetTokenInfo")
@@ -59,7 +74,7 @@ public class KakaoTestController {
         kgtr.setAccess_token(token);
         System.out.println(kgtr.getAccess_token());
         KakaoTokenInfoResponse kakaoTokenInfoResponse = kakaoAPI.kakaoGetTokenInfo(kgtr);
-        System.out.println(kakaoTokenInfoResponse.id);
-        request.getSession().setAttribute("kakaoId", kakaoTokenInfoResponse.id);
+        System.out.println(kakaoTokenInfoResponse.getId());
+        request.getSession().setAttribute("kakaoId", kakaoTokenInfoResponse.getId());
     }
 }

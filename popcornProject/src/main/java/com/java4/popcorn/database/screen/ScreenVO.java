@@ -12,5 +12,6 @@ public class ScreenVO {
     String date;
     String theater_id;
     String movie_id;
+    Integer runtime;
 
 }

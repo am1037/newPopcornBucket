@@ -30,6 +30,7 @@ public class HomeController {
 		}else {
 			System.out.println("kakaoId is " + session.getAttribute("kakaoId"));
 		}
+
 		return "home";
 	}
 

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,40 +12,36 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
+
+    <script>
+        $.ajax({
+            url: "${pageContext.request.contextPath}/alarm/navbar/",
+            type: "GET",
+            success: function (data) {
+                $('#navbar-container').html(data);
+            },
+            error: function (e) {
+                console.log("error while getting navbar")
+                console.log(e);
+            }
+        })
+    </script>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <div class="container-fluid" id="navbar-container">
-        <a class="navbar-brand" href="#">Logo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse bg-dark navbar-dark" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/alarm/theater/">극장 등록</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/alarm/movie/">영화 등록</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/alarm/">알람 관리</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div id="navbar-container">
+
+</div>
 
 <div class="container-fluid mt-3">
-    <h3>Collapsible Navbar</h3>
-    <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).</p>
-    <p>Only when the button is clicked, the navigation bar will be displayed.</p>
-    <p>Tip: You can also remove the .navbar-expand-md class to ALWAYS hide navbar links and display the toggler button.</p>
+
 </div>
 
 </body>
+<script>
+
+</script>
 </html>
 
 

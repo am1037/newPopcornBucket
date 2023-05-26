@@ -40,6 +40,7 @@ public class TestControllerForLine {
             String message = wd.getEvents().get(0).getMessage().getText();
             String str = screenDAO.test2(message);
             System.out.println("str: " + str);
+            System.out.println("userId: " + userId);
             System.out.println(lineAPI.sendMessageTest(str, userId));
         }
     }

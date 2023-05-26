@@ -28,13 +28,14 @@ public class MongoMemberDAO {
                                      .projection(Projections.excludeId())
                                      .first();
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(doc.toJson(), MongoMemberVO.class);
+            if (doc != null) {
+                return mapper.readValue(doc.toJson(), MongoMemberVO.class);
+            }
         }catch (Exception e){
-            System.out.println("No such member");
-            return null;
+            e.printStackTrace();
         }
+        return null;
     }
-
     public MongoMemberVO selectOneByKakaoId(String id) {
         try(MongoClient mongoClient = MongoClients.create(url)) {
             MongoDatabase db = mongoClient.getDatabase(dbName);
@@ -43,13 +44,15 @@ public class MongoMemberDAO {
                     .projection(Projections.excludeId())
                     .first();
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(doc.toJson(), MongoMemberVO.class);
+            if (doc != null) {
+                return mapper.readValue(doc.toJson(), MongoMemberVO.class);
+            }
         }catch (Exception e){
-            System.out.println("No such member");
-            return null;
+            e.printStackTrace();
         }
+        System.out.println("selectOneByKakaoId: null");
+        return null;
     }
-
     public InsertOneResult insertOne(String line_id, List<String> movie_list, List<String> theater_list) {
         try(MongoClient mongoClient = MongoClients.create(url)) {
             MongoDatabase db = mongoClient.getDatabase(dbName);
@@ -65,11 +68,9 @@ public class MongoMemberDAO {
             return null;
         }
     }
-
     public InsertOneResult insertOne(String line_id) {
         return insertOne(line_id, new ArrayList<>(), new ArrayList<>());
     }
-
     public DeleteResult deleteOne(String userId) {
         Document filter = new Document("line_id", userId);
         try(MongoClient mongoClient = MongoClients.create(url)) {
@@ -99,17 +100,26 @@ public class MongoMemberDAO {
         return getUpdateResult(filter, update);
     }
 
+
+    //나중에 user_id 확정되면 더 general하게 바꾸기
     @Deprecated
-    public UpdateResult pushTheater(String userId, String theater_id) {
-        Document filter = new Document("line_id", userId);
+    public UpdateResult pushTheaterByKakaoId(String kakaoId, String theater_id) {
+        Document filter = new Document("kakao_id", kakaoId);
         Document update = new Document("$push", new Document("theater_favorites", theater_id));
         return getUpdateResult(filter, update);
     }
 
     @Deprecated
-    public UpdateResult pullTheater(String userId, String theater_id) {
-        Document filter = new Document("line_id", userId);
+    public UpdateResult pullTheaterByKakaoId(String kakaoId, String theater_id) {
+        Document filter = new Document("kakao_id", kakaoId);
         Document update = new Document("$pull", new Document("theater_favorites", theater_id));
+        return getUpdateResult(filter, update);
+    }
+
+    @Deprecated
+    public UpdateResult setMovieByKakaoId(String kakaoId, List<String> movie_titles) {
+        Document filter = new Document("kakao_id", kakaoId);
+        Document update = new Document("$set", new Document("movie_favorites", movie_titles));
         return getUpdateResult(filter, update);
     }
 

@@ -5,13 +5,16 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @Component
 public class KmdbAPI {
     String key = "&ServiceKey="+System.getenv("key4kmdb");
-    String str = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y";
+    String str = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&listCount=500";
     public KmdbMovieSimpleInfoResponseVO getMovieInfo(int startCount){
         try {
             String strstr = "&listCount=110";
@@ -48,7 +51,8 @@ public class KmdbAPI {
 
     public KmdbMovieSimpleInfoResponseVO getMovieInfoByTitle(String title){
         try {
-            HttpURLConnection connection = (HttpURLConnection) new URL(str+key+"&title="+title).openConnection();
+            String encoded = URLEncoder.encode(title, StandardCharsets.UTF_8.toString());
+            HttpURLConnection connection = (HttpURLConnection) new URL(str+key+"&title="+encoded).openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-Type", "application/json");
             ObjectMapper om = new ObjectMapper();
@@ -60,14 +64,29 @@ public class KmdbAPI {
     }
 
     public static void main(String[] args) {
+        String key = "&ServiceKey="+System.getenv("key4kmdb");
+        String str = "http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&detail=Y&listCount=20";
         KmdbAPI kmdbAPI = new KmdbAPI();
-//        for(int i=0;i<100;i++) {
-//            System.out.println(i);
-//            KmdbMovieSimpleInfoResponse kmdbMovieSimpleInfoResponse = kmdbAPI.getMovieInfo(i);
-//            kmdbMovieSimpleInfoResponse.printAsJson("kmdb/"+"yy" + i + ".json");
-//        }
-        System.out.println(kmdbAPI.getMovieInfoByString(0));
-        //System.out.println(KmdbMovieSimpleInfoResponse.readFromJson("10.json").getData().get(0).getResult());
+        String title = "트랜스포머";
+
+        try {
+            String encodedTitle = URLEncoder.encode(title, StandardCharsets.UTF_8.toString());
+            HttpURLConnection connection = (HttpURLConnection) new URL(str+key+"&title="+encodedTitle).openConnection();
+            connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/json");
+            ObjectMapper om = new ObjectMapper();
+            StringBuilder sb = new StringBuilder();
+            String line;
+            BufferedReader br = new BufferedReader(new java.io.InputStreamReader(connection.getInputStream(), "UTF-8"));
+            while ((line = br.readLine()) != null) {
+                sb.append(line.trim());
+            }
+            System.out.println(sb.toString());
+//            KmdbMovieSimpleInfoResponseVO vo = kmdbAPI.getMovieInfoByTitle(title);
+//            System.out.println(vo.getData().get(0));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }
