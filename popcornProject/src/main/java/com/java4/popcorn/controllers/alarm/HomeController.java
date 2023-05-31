@@ -1,4 +1,4 @@
-package com.java4.popcorn.controllers;
+package com.java4.popcorn.controllers.alarm;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

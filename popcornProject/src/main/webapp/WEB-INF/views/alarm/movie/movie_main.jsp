@@ -29,6 +29,17 @@
     </script>
 
     <style>
+        .center-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        th{
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -37,24 +48,26 @@
         error while loading navbar
     </div>
 
-    <h3>영화 ID가 빈 칸이면 안 됩니다!! 다 제가 못난 탓 입니다!!</h3>
-
-    <div id="movie-onscreen">
-        <table>
-            <th>영화 제목</th>
-            <th>영화 ID</th>
-            <th></th>
-            <th></th>
-                <c:forEach var="i" items="${movieOnScreen.keySet()}">
-                    <tr>
-                        <td>${movieOnScreen.get(i)}</td>
-                        <td>${i}</td>
-                        <td><a href="상세정보">상세 정보</a></td>
-                        <td><input type="checkbox" id="checkbox_${i}"></td>
-                    </tr>
-                </c:forEach>
-        </table>
-        <button id="btn-apply">적용</button>
+    <div id="movie-onscreen" class="container-fluid center-container">
+        <div class="table-div center-container">
+            <table class="text-left">
+                <th>영화 제목</th>
+                <th>영화 ID</th>
+                <th></th>
+                <th></th>
+                    <c:forEach var="i" items="${movieOnScreen.keySet()}">
+                        <tr>
+                            <td>${movieOnScreen.get(i)}</td>
+                            <td>${i}</td>
+                            <td><a href="상세정보">상세 정보</a></td>
+                            <td><input type="checkbox" id="checkbox_${i}"></td>
+                        </tr>
+                    </c:forEach>
+            </table>
+        </div>
+        <div class="div-button">
+            <button id="btn-apply">적용</button>
+        </div>
     </div>
 </body>
 

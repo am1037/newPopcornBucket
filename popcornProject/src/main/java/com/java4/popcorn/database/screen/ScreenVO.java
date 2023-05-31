@@ -6,12 +6,15 @@ import lombok.Data;
 public class ScreenVO {
 
     String title;
-    String theater;
-    String screen;
+    String company;
+    String screen_name;
     String time;
     String date;
     String theater_id;
-    String movie_id;
+    String movie_docid;
     Integer runtime;
+    String detail_url;
+    String time_end;
+    int pk;
 
 }

@@ -124,21 +124,21 @@ public class MongoMemberDAO {
 
 
     //나중에 user_id 확정되면 더 general하게 바꾸기
-    @Deprecated
+
     public UpdateResult pushTheaterByKakaoId(String kakaoId, String theater_id) {
         Document filter = new Document("kakao_id", kakaoId);
         Document update = new Document("$push", new Document("theater_favorites", theater_id));
         return getUpdateResult(filter, update);
     }
 
-    @Deprecated
+
     public UpdateResult pullTheaterByKakaoId(String kakaoId, String theater_id) {
         Document filter = new Document("kakao_id", kakaoId);
         Document update = new Document("$pull", new Document("theater_favorites", theater_id));
         return getUpdateResult(filter, update);
     }
 
-    @Deprecated
+
     public UpdateResult setMovieByKakaoId(String kakaoId, List<String> movie_titles) {
         Document filter = new Document("kakao_id", kakaoId);
         Document update = new Document("$set", new Document("movie_favorites", movie_titles));

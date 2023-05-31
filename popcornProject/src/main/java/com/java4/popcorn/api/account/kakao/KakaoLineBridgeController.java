@@ -32,7 +32,7 @@ import java.util.Map;
 public class KakaoLineBridgeController {
     //https://developers.kakao.com/console/app/860023/product/login
     //위 링크에서 redirect 허용 url 수정할 필요가 있다.
-    final String baseUrl = "https://4b46-115-137-12-120.ngrok-free.app/newPopcornBucket_war_exploded/";
+    final String baseUrl = "http://localhost:8887/newPopcornBucket_war_exploded/";
     final String redirectURI = baseUrl + "stepThree";
     //stepTwo가 붙은 url은 stepTwo method로 가는 url,
     //stepThree가 붙은 url은 stepThree method로 가는 url이다.

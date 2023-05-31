@@ -3,28 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ScreenDAO">
+
     <select id="selectAll" resultType="com.java4.popcorn.database.screen.ScreenVO">
         select * from popcorn.movie_screen
     </select>
-    <insert id="insertOne">
-        insert into popcorn.movie_screen
-        values(#{title}, #{theater}, #{screen}, #{time}, #{date}, #{theater_id}, #{movie_id}, #{runtime})
-    </insert>
     <select id="selectByTheater" resultType="com.java4.popcorn.database.screen.ScreenVO">
         select * from popcorn.movie_screen ms where theater_id = #{theater_id}
+    </select>
+    <select id="selectByDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
+        select * from popcorn.movie_screen ms where date = #{date}
     </select>
     <select id="selectByTheaterAndDate" resultType="com.java4.popcorn.database.screen.ScreenVO">
         select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date}
     </select>
 
-    <!--select distinct title from popcorn.movie_screen ms-->
-    <select id="selectAllTitle" resultType="java.lang.String">
-        select distinct title from popcorn.movie_screen ms
-    </select>
+
+
+
+
+
+
+    <insert id="insertOne">
+        insert into popcorn.movie_screen
+        values(#{title}, #{theater}, #{screen}, #{time}, #{date}, #{theater_id}, #{movie_id}, #{runtime})
+    </insert>
 
     <!--selectByTheaterAndDateAndMovieId-->
     <select id="selectByTheaterAndDateAndMovieId" resultType="com.java4.popcorn.database.screen.ScreenVO">
-        select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date} and movie_id = #{movie_id}
+        select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date} and movie_docid = #{movie_docid}
     </select>
 
     <update id="updateMovieIdByTitle">

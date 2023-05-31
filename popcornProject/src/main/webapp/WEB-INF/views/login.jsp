@@ -41,7 +41,7 @@
 
 <div class="container-fluid pt-5 text-center">
 this is login page<br>
-<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=04b500e325879415373f7b3fa5ff0e86&redirect_uri=https://4b46-115-137-12-120.ngrok-free.app/newPopcornBucket_war_exploded/stepThree">
+<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=04b500e325879415373f7b3fa5ff0e86&redirect_uri=http://localhost:8887/newPopcornBucket_war_exploded/stepThree">
     <img src="${pageContext.request.contextPath}/resources/kakao_login_medium_narrow.png"><br><br><br><br>
 </a>
 등록을 마치지 않으신 분은<br>

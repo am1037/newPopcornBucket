@@ -24,7 +24,7 @@
                         <a class="nav-link" href="${pageContext.request.contextPath}/alarm/movie/">영화 등록</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${pageContext.request.contextPath}/alarm/">알람 관리</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/alarm/alarm">알람 관리</a>
                     </li>
                 </ul>
                 <a href="mypage" class="col text-end">test</a>

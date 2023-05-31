@@ -12,6 +12,5 @@
         <mapper resource="mappers/movieMapper.xml"/>
         <mapper resource="mappers/screenMapper.xml"/>
         <mapper resource="mappers/theaterMapper.xml"/>
-<!--<mapper resource="mappers/m2mMapper.xml"/>-->
     </mappers>
 </configuration>

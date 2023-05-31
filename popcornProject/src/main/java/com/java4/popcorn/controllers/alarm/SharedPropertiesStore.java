@@ -1,4 +1,4 @@
-package com.java4.popcorn.controllers;
+package com.java4.popcorn.controllers.alarm;
 
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.screen.ScreenVO;
@@ -29,14 +29,14 @@ public class SharedPropertiesStore {
         setMovieIdToTitleMap();
     }
     public void setPropertiesFromDB(){
-        List<TheaterVO> theaterVOs = screenDAO.selectAllTheaterCode();
+        List<TheaterVO> theaterVOs = theaterDAO.selectAllTheaterCode();
         List<ScreenVO> screenVOs = new ArrayList<>();
         for(TheaterVO theaterVO : theaterVOs){
             screenVOs.addAll(screenDAO.selectByTheater(theaterVO.getTheater_id()));
         }
         movieOnScreen = new HashMap<>();
         for (ScreenVO screenVO : screenVOs) {
-            movieOnScreen.put(screenVO.getMovie_id(), screenVO.getTitle());
+            movieOnScreen.put(screenVO.getMovie_docid(), screenVO.getTitle());
         }
         theaterIdToNameMap = new HashMap<>();
         for (TheaterVO theaterVO : theaterVOs) {

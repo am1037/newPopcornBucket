@@ -1,4 +1,4 @@
-package com.java4.popcorn.controllers;
+package com.java4.popcorn.controllers.alarm;
 
 import com.java4.popcorn.api.account.kakao.KakaoLineBridgeController;
 import com.java4.popcorn.api.line.message.LineAPI;
