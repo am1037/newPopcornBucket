@@ -25,22 +25,27 @@
                 console.log("error while getting navbar")
                 console.log(e);
             }
-        });
+        })
     </script>
+
+    <style>
+    </style>
 </head>
 
 <body>
 <div id="navbar-container">
     error while loading navbar
 </div>
-
-<div id="daily">
-<%--가장 상영수가 적은 영화는?--%>
-</div>
-
-
-
+<a href="${pageContext.request.contextPath}">등록이 실패했습니다..</a>
 </body>
+<script>
+
+</script>
+<%--<c:forEach var="i" items="${movieFavorites}">--%>
+<%--    <script>--%>
+<%--        console.log("${i}");--%>
+<%--    </script>--%>
+<%--</c:forEach>--%>
 
 </html>
 

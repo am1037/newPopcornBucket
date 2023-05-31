@@ -124,6 +124,7 @@ public class ScreenDAO {
      */
     final
     KmdbAPI kmdbAPI;
+    @Deprecated
     public int updateMovieId(){
         Map<String, String> titleToDOCIDMap = new HashMap<>();
         Map<String, KmdbMovieSimpleInfoResponseVO> errorMap = new HashMap<>();
@@ -316,5 +317,9 @@ public class ScreenDAO {
         map.put("date", day);
         map.put("movie_id", movie);
         return my.selectList("ScreenDAO.selectByTheaterAndDateAndMovieId", map);
+    }
+
+    public List<String> selectAllTitle() {
+        return my.selectList("ScreenDAO.selectAllTitle");
     }
 }

@@ -2,9 +2,9 @@ package com.java4.popcorn.controllers;
 
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.screen.ScreenVO;
+import com.java4.popcorn.database.theater.TheaterDAO;
 import com.java4.popcorn.database.theater.TheaterVO;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
@@ -15,13 +15,16 @@ import java.util.*;
 @Data
 public class SharedPropertiesStore {
 
-    final
-    ScreenDAO screenDAO;
+    final ScreenDAO screenDAO;
+    final TheaterDAO theaterDAO;
 
     Map<String, String> movieOnScreen;
     Map<String, String> movieIdToTitleMap;
-    public SharedPropertiesStore(ScreenDAO screenDAO) {
+    Map<String, String> theaterIdToNameMap;
+    Set<String> regionSet;
+    public SharedPropertiesStore(ScreenDAO screenDAO, TheaterDAO theaterDAO) {
         this.screenDAO = screenDAO;
+        this.theaterDAO = theaterDAO;
         setPropertiesFromDB();
         setMovieIdToTitleMap();
     }
@@ -34,6 +37,15 @@ public class SharedPropertiesStore {
         movieOnScreen = new HashMap<>();
         for (ScreenVO screenVO : screenVOs) {
             movieOnScreen.put(screenVO.getMovie_id(), screenVO.getTitle());
+        }
+        theaterIdToNameMap = new HashMap<>();
+        for (TheaterVO theaterVO : theaterVOs) {
+            theaterIdToNameMap.put(theaterVO.getTheater_id(), theaterVO.getTheater_name());
+        }
+//        regionSet = theaterDAO.selectAllRegion();
+        regionSet = new HashSet<>();
+        for (TheaterVO theaterVO : theaterVOs) {
+            regionSet.add(theaterVO.getTheater_region());
         }
     }
 

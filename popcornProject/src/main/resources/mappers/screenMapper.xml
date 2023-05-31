@@ -17,7 +17,12 @@
         select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date}
     </select>
 
-<!--    //selectByTheaterAndDateAndMovieId-->
+    <!--select distinct title from popcorn.movie_screen ms-->
+    <select id="selectAllTitle" resultType="java.lang.String">
+        select distinct title from popcorn.movie_screen ms
+    </select>
+
+    <!--selectByTheaterAndDateAndMovieId-->
     <select id="selectByTheaterAndDateAndMovieId" resultType="com.java4.popcorn.database.screen.ScreenVO">
         select * from popcorn.movie_screen ms where theater_id = #{theater_id} and date = #{date} and movie_id = #{movie_id}
     </select>

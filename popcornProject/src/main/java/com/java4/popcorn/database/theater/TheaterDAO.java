@@ -42,6 +42,9 @@ public class TheaterDAO {
         }
         return null;
     }
+    public List<String> selectAllRegion(){
+        return my.selectList("TheaterDAO.selectAllRegion");
+    }
     public List<TheaterVO> selectTheaterByRegion(String region){
         try {
             Map<String, String> map = new HashMap<>();

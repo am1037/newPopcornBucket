@@ -34,4 +34,19 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/login")
+	public String login(HttpServletRequest request,
+					   Model model) {
+		//사용자 특정 관련.. 세션과 쿠키 등?
+		HttpSession session = request.getSession();
+
+		if(session.getAttribute("kakaoId") == null){
+			System.out.println("kakaoId is null");
+		}else {
+			System.out.println("kakaoId is " + session.getAttribute("kakaoId"));
+		}
+
+		return "login";
+	}
+
 }

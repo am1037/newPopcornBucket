@@ -72,16 +72,16 @@ public class TheaterController {
     @RequestMapping(method = RequestMethod.GET, value = "alarm/theater/")
     public String theater_main(HttpServletRequest request,
                                Model model) {
-        System.out.println("theater_main called");
-        String kakaoId = String.valueOf(request.getSession().getAttribute("kakaoId"));
-        if (request.getSession().getAttribute("kakaoId") == null) {
-            //로그인 안되어있으면 로그인 페이지로
-            //나중에 콜백 추가??
-            System.out.println("kakaoId is null");
-            return "redirect:/";
+        System.out.println("theater_main");
+
+        String kakaoId;
+        MongoMemberVO vo;
+        try {
+            kakaoId = request.getSession().getAttribute("kakaoId").toString();
+            vo = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+        }catch (NullPointerException e){
+            return "redirect:/login";
         }
-        //mongoMemberDAO.selectOneByKakaoId(kakaoId).getTheater_favorites().forEach(System.out::println);
-        MongoMemberVO vo = mongoMemberDAO.selectOneByKakaoId(kakaoId);
 
         model.addAttribute("theater_rawMap", theaterMap);
         model.addAttribute("theater_favorites", vo.getTheater_favorites());

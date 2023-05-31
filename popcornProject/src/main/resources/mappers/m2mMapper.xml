@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="m2mDAO">
+
+<!--필요한 sql-->
+<!--    m2m은 기본적으로 kmdb 베이스이다-->
+<!--    상영작 위주로 그때그때 요청하고 갱신하는 식으로..-->
+<!--    DOCID로 select, update-->
+<!--    movie_title로 select, update-->
+<!--    insert-->
+
+<select id="selectByDOCID" resultType="java.com.java4.popcorn.database.m2m.Movie2MovieVO">
+    select * from popcorn.movie2movie where DOCID = #{DOCID}
+</select>
+
+<select id="selectByTitle" resultType="java.com.java4.popcorn.database.m2m.Movie2MovieVO">
+    select * from popcorn.movie2movie where movie_title = #{movie_title}
+</select>
+
+<insert id="insertOne">
+    insert into popcorn.movie2movie
+    values(#{DOCID}, #{movie_title})
+</insert>
+
+<update id="updateByDOCID">
+    update popcorn.movie2movie
+    set movie_title = #{movie_title}
+    where DOCID = #{DOCID}
+</update>
+
+<update id="updateByTitle">
+    update popcorn.movie2movie
+    set DOCID = #{DOCID}
+    where movie_title = #{movie_title}
+</update>
+
+</mapper>

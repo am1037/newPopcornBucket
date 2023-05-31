@@ -17,5 +17,9 @@
     <select id="selectTheatersByRegion" resultType="com.java4.popcorn.database.theater.TheaterVO">
         select * from popcorn.theater where theater_region = #{theater_region}
     </select>
+<!--    select distinct theater_region  from popcorn.theater t (String!!)-->
+    <select id="selectTheaterRegions" resultType="java.lang.String">
+        select distinct theater_region from popcorn.theater t
+    </select>
 
 </mapper>

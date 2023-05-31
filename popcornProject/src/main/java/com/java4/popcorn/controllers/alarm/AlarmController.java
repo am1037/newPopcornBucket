@@ -6,13 +6,12 @@ import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
 import com.java4.popcorn.database.MongoMember.MongoMemberVO;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.screen.ScreenVO;
-import com.java4.popcorn.database.theater.TheaterVO;
+import com.java4.popcorn.database.theater.TheaterDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
@@ -27,15 +26,31 @@ public class AlarmController {
     ScreenDAO screenDAO;
     @Autowired
     SharedPropertiesStore store;
+    @Autowired
+    TheaterDAO theaterDAO;
 
     @RequestMapping(method = RequestMethod.GET, value = "alarm/")
     public String alarm_main(HttpServletRequest request,
                              Model model) {
-        String kakaoId = request.getSession().getAttribute("kakaoId").toString();
-        MongoMemberVO mongoMemberVO = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+        System.out.println("alarm_main");
 
-        List<String> listTheaterFavorites = mongoMemberVO.getTheater_favorites();
-        List<String> listMovieFavorites = mongoMemberVO.getMovie_favorites();
+        String kakaoId;
+        MongoMemberVO vo;
+        try {
+            kakaoId = request.getSession().getAttribute("kakaoId").toString();
+            vo = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+        }catch (NullPointerException e){
+            return "redirect:/login";
+        }
+
+        List<String> listTheaterFavorites = vo.getTheater_favorites();
+        Map<String, String> theaterIdToNameMap = new HashMap<>();
+        for(String theaterId : listTheaterFavorites){
+            theaterIdToNameMap.put(theaterId, store.getTheaterIdToNameMap().get(theaterId));
+        }
+
+
+        List<String> listMovieFavorites = vo.getMovie_favorites();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         String tomorrow = sdf.format(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24));
@@ -44,29 +59,32 @@ public class AlarmController {
         List<String> daysList = store.betweenTwoDate(tomorrow, fourDays);
 
         Map<String, List<ScreenVO>> screenMap = new HashMap<>();
-        for(String theater : listTheaterFavorites)      {
-            for(String movie : listMovieFavorites) {
-                screenMap.put(movie, new ArrayList<>());
+        for(String movie : listMovieFavorites) {
+            screenMap.put(movie, new ArrayList<>());
+            for(String theater : listTheaterFavorites)      {
                 for (String day : daysList) {
                     screenMap.get(movie).addAll(screenDAO.selectByTheaterAndDateAndMovieId(theater, day, movie));
                 }
             }
         }
+        System.out.println("screenMap : " + screenMap);
 
         try {
-        ObjectMapper om = new ObjectMapper();
-        model.addAttribute("listTheaterFavorites", om.writeValueAsString(listTheaterFavorites));
-        model.addAttribute("listMovieFavorites", om.writeValueAsString(listMovieFavorites));
-        model.addAttribute("screenMap", om.writeValueAsString(screenMap));
-        System.out.println(om.writeValueAsString("hmm1" + store.getMovieIdToTitleMap()));
-        model.addAttribute("movieIdToTitleMap", om.writeValueAsString(store.getMovieIdToTitleMap()));
-        model.addAttribute("listDays", om.writeValueAsString(daysList));
-        //print attributed values for check and test
-        System.out.println("alarm_main : " + request.getSession().getAttribute("kakaoId"));
-        System.out.println("listTheaterFavorites : " + listTheaterFavorites);
-        System.out.println("listMovieFavorites : " + listMovieFavorites);
-        System.out.println("screenMap : " + screenMap);
-        System.out.println("listDays : " + daysList);
+            ObjectMapper om = new ObjectMapper();
+            model.addAttribute("listTheaterFavorites", om.writeValueAsString(listTheaterFavorites));
+            model.addAttribute("listMovieFavorites", om.writeValueAsString(listMovieFavorites));
+            model.addAttribute("screenMap", om.writeValueAsString(screenMap));
+            model.addAttribute("theaterIdToNameMap", om.writeValueAsString(theaterIdToNameMap));
+            System.out.println(om.writeValueAsString("hmm1" + store.getMovieIdToTitleMap()));
+            model.addAttribute("movieIdToTitleMap", om.writeValueAsString(store.getMovieIdToTitleMap()));
+            model.addAttribute("listDays", om.writeValueAsString(daysList));
+            //print attributed values for check and test
+            System.out.println("alarm_main : " + request.getSession().getAttribute("kakaoId"));
+            System.out.println("listTheaterFavorites : " + listTheaterFavorites);
+            System.out.println("listMovieFavorites : " + listMovieFavorites);
+            System.out.println("screenMap : " + screenMap);
+            System.out.println("theaterIdToNameMap : " + theaterIdToNameMap);
+            System.out.println("listDays : " + daysList);
         }catch (Exception e) {
             e.printStackTrace();
         }

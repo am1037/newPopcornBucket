@@ -1,10 +1,7 @@
 package com.java4.popcorn.database.MongoMember;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.result.DeleteResult;
@@ -53,24 +50,49 @@ public class MongoMemberDAO {
         System.out.println("selectOneByKakaoId: null");
         return null;
     }
-    public InsertOneResult insertOne(String line_id, List<String> movie_list, List<String> theater_list) {
+
+    public List<String> selectAllKakaoId(){
+        List<String> list = new ArrayList<>();
+        try (MongoClient mongoClient = MongoClients.create(url)) {
+            MongoDatabase database = mongoClient.getDatabase(dbName);
+            MongoCollection<Document> collection = database.getCollection("member");
+
+            // Find all documents in the collection
+            try (MongoCursor<Document> cursor = collection.find().iterator()) {
+                while (cursor.hasNext()) {
+                    Document document = cursor.next();
+                    // Process the document
+                    String userId = document.getString("kakao_id");
+                    list.add(userId);
+                    // Send alarm message with the user ID
+                }
+            }
+        }
+        return list;
+    }
+
+    public InsertOneResult insertOne(String line_id, String kakao_id, List<String> movie_list, List<String> theater_list) {
         try(MongoClient mongoClient = MongoClients.create(url)) {
             MongoDatabase db = mongoClient.getDatabase(dbName);
             MongoCollection<Document> collection = db.getCollection("member");
 
             Document document = new Document("line_id", line_id)
+                    .append("kakao_id", kakao_id)
                     .append("movie_favorites", movie_list)
                     .append("theater_favorites", theater_list);
-
+            if(selectOneByKakaoId(kakao_id) != null){
+                System.out.println("insertOne: already exist");
+                return null;
+            }
             return collection.insertOne(document);
         }catch (Exception e){
             e.printStackTrace();
             return null;
         }
     }
-    public InsertOneResult insertOne(String line_id) {
-        return insertOne(line_id, new ArrayList<>(), new ArrayList<>());
-    }
+//    public InsertOneResult insertOne(String line_id) {
+//        return insertOne(line_id, new ArrayList<>(), new ArrayList<>());
+//    }
     public DeleteResult deleteOne(String userId) {
         Document filter = new Document("line_id", userId);
         try(MongoClient mongoClient = MongoClients.create(url)) {

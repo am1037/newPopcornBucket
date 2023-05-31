@@ -1,5 +1,6 @@
 package com.java4.popcorn.controllers;
 
+import com.java4.popcorn.api.account.kakao.KakaoLineBridgeController;
 import com.java4.popcorn.api.line.message.LineAPI;
 import com.java4.popcorn.api.line.message.WebhookData;
 import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
@@ -23,27 +24,30 @@ public class TestControllerForLine {
     @Autowired
     private ScreenDAO screenDAO;
 
+    @Autowired
+    private KakaoLineBridgeController kakaoLineBridgeController;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/line")
-    public void test(@RequestBody String body){
-        System.out.println("body: " + body);
-        WebhookData wd = new WebhookData(body);
-        String userId = wd.getEvents().get(0).getSource().getUserId();
-        System.out.println("wd: " + wd);
-        if(wd.getEvents().get(0).getType().equals("follow")){
-            System.out.println(lineAPI.sendMessageTest("안녕하세요, 영화 알림 서비스 입니다.", userId));
-            mongoMemberDAO.insertOne(userId);
-        }else if(wd.getEvents().get(0).getType().equals("unfollow")){
-            mongoMemberDAO.deleteOne(userId);
-        }else {
-            //System.out.println(lineAPI.sendMessageTest("아직 아무 기능도 없답니다.", userId));
-            String message = wd.getEvents().get(0).getMessage().getText();
-            String str = screenDAO.test2(message);
-            System.out.println("str: " + str);
-            System.out.println("userId: " + userId);
-            System.out.println(lineAPI.sendMessageTest(str, userId));
-        }
-    }
+//    @RequestMapping(method = RequestMethod.POST, value = "/line")
+//    public void test(@RequestBody String body){
+//        System.out.println("body: " + body);
+//        WebhookData wd = new WebhookData(body);
+//        String userId = wd.getEvents().get(0).getSource().getUserId();
+//        System.out.println("wd: " + wd);
+//        if(wd.getEvents().get(0).getType().equals("follow")){
+//            String str = "안녕하세요, 영화 알림 서비스 입니다. 다음 링크를 통하여 개인 식별용 카카오톡 계정을 등록해주세요.\n" + kakaoLineBridgeController.getTargetURL();
+//            System.out.println(lineAPI.sendMessageTest(str, userId));
+//            mongoMemberDAO.insertOne(userId);
+//        }else if(wd.getEvents().get(0).getType().equals("unfollow")){
+//            mongoMemberDAO.deleteOne(userId);
+//        }else {
+//            //System.out.println(lineAPI.sendMessageTest("아직 아무 기능도 없답니다.", userId));
+//            String message = wd.getEvents().get(0).getMessage().getText();
+//            String str = screenDAO.test2(message);
+//            System.out.println("str: " + str);
+//            System.out.println("userId: " + userId);
+//            System.out.println(lineAPI.sendMessageTest(str, userId));
+//        }
+//    }
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/line2")

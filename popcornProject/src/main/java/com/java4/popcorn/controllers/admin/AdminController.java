@@ -9,7 +9,6 @@ package com.java4.popcorn.controllers.admin;
 3. kobis 또는 kmdb로부터 lazy하게 콜 하는 버튼?
  */
 
-import com.java4.popcorn.api.account.kakao.MyLittleKakaoAPI;
 import com.java4.popcorn.api.kmdb.KmdbAPI;
 import com.java4.popcorn.api.line.message.LineAPI;
 import com.java4.popcorn.controllers.SharedPropertiesStore;
@@ -34,7 +33,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Stream;
@@ -50,10 +48,9 @@ public class AdminController {
     final KmdbAPI kmdbAPI;
     final AdminFileHandler adminFileHandler;
     final LineAPI lineAPI;
-    final MyLittleKakaoAPI myLittleKakaoAPI;
     final MongoMemberDAO mongoMemberDAO;
 
-    public AdminController(SharedPropertiesStore store, CGV cgv, ScreenDAO screenDAO, TheaterDAO theaterDAO, KmdbAPI kmdbAPI, AdminFileHandler adminFileHandler, LineAPI lineAPI, MyLittleKakaoAPI myLittleKakaoAPI, MongoMemberDAO mongoMemberDAO) {
+    public AdminController(SharedPropertiesStore store, CGV cgv, ScreenDAO screenDAO, TheaterDAO theaterDAO, KmdbAPI kmdbAPI, AdminFileHandler adminFileHandler, LineAPI lineAPI, MongoMemberDAO mongoMemberDAO) {
         this.store = store;
         this.cgv = cgv;
         this.screenDAO = screenDAO;
@@ -61,7 +58,6 @@ public class AdminController {
         this.kmdbAPI = kmdbAPI;
         this.adminFileHandler = adminFileHandler;
         this.lineAPI = lineAPI;
-        this.myLittleKakaoAPI = myLittleKakaoAPI;
         this.mongoMemberDAO = mongoMemberDAO;
     }
 
@@ -70,9 +66,10 @@ public class AdminController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Date date = new Date();
         String today = sdf.format(date);
-        String lastday = sdf.format(new Date(date.getTime() + (1000 * 60 * 60 * 24 * 7)));
+        String lastday = sdf.format(new Date(date.getTime() + (1000 * 60 * 60 * 24 * 4)));
         model.addAttribute("today", today);
         model.addAttribute("lastday", lastday);
+        model.addAttribute("regionSet", store.getRegionSet());
         return "admin/admin";
     }
 
@@ -171,11 +168,13 @@ public class AdminController {
                                 @RequestParam("region") String region){
         System.out.println("cgvCrawlFromUntilRegion");
 
-        List<String> list = new ArrayList<>();
-        theaterDAO.selectTheaterByRegion(region).forEach(vo -> list.add(vo.getTheater_id()));
-        for (String theater_id : list) {
-            for (String i : store.betweenTwoDate(dateFrom, dateUntil)) {
-                cgvCrawlOneDay(theater_id, i);
+        for(String r : region.split(",")) {
+            List<String> list = new ArrayList<>();
+            theaterDAO.selectTheaterByRegion(r).forEach(vo -> list.add(vo.getTheater_id()));
+            for (String theater_id : list) {
+                for (String i : store.betweenTwoDate(dateFrom, dateUntil)) {
+                    cgvCrawlOneDay(theater_id, i);
+                }
             }
         }
 
@@ -244,42 +243,88 @@ public class AdminController {
     }
 
     //테스트 용도입니다!!!! 근데 지금 급한데 바꾸면 또 안 될까봐 sendMessageTest라고 이름 못 바꾸겟음 ㅎ
+//    @RequestMapping(method = RequestMethod.GET, value = "/admin/sendMessage")
+//    public void sendMessage(HttpServletRequest request,
+//                            Model model){
+//        System.out.println("sendMessage");
+//        String kakaoId = request.getSession().getAttribute("kakaoId").toString();
+//        try {
+//            MongoMemberVO member = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+//            String lineId = member.getLine_id();
+//
+//            StringBuilder sb = new StringBuilder();
+//            sb.append("즐겨찾기 한 극장 목록입니다");
+//            Map<String, String> map = new HashMap<>();
+//            List<TheaterVO> list = theaterDAO.getTheaterCodes();
+//            for (TheaterVO vo : list) {
+//                map.put(vo.getTheater_id(), vo.getTheater_name());
+//            }
+//            for (String str : member.getTheater_favorites()){
+//                sb.append("\n").append(map.get(str));
+//            }
+//            sb.append("\n\n즐겨찾기 한 영화 목록입니다");
+//            Map<String, String> map2 = new HashMap<>();
+//            List<ScreenVO> list2 = screenDAO.selectAll();
+//            for (ScreenVO vo : list2) {
+//                map2.put(vo.getMovie_id(), vo.getTitle());
+//            }
+//            for (String str : member.getMovie_favorites()){
+//                sb.append("\n").append(map2.get(str));
+//            }
+//
+//            System.out.println(lineAPI.sendMessageTest(sb.toString(), lineId));
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println("sendMessage Done");
+//
+//        //return "admin/sendMessage";
+//    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/admin/sendMessage")
-    public void sendMessage(HttpServletRequest request,
-                            Model model){
-        System.out.println("sendMessage");
-        String kakaoId = request.getSession().getAttribute("kakaoId").toString();
-        try {
-            MongoMemberVO member = mongoMemberDAO.selectOneByKakaoId(kakaoId);
-            String lineId = member.getLine_id();
+    public void sendMessageToAll(Model model){
+        System.out.println("sendMessageToAll");
+        List<String> kakaoIdList = mongoMemberDAO.selectAllKakaoId();
+        for(String kakaoId : mongoMemberDAO.selectAllKakaoId()){
+            try {
+                MongoMemberVO member = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+                String lineId = member.getLine_id();
 
-            StringBuilder sb = new StringBuilder();
-            sb.append("즐겨찾기 한 극장 목록입니다");
-            Map<String, String> map = new HashMap<>();
-            List<TheaterVO> list = theaterDAO.getTheaterCodes();
-            for (TheaterVO vo : list) {
-                map.put(vo.getTheater_id(), vo.getTheater_name());
-            }
-            for (String str : member.getTheater_favorites()){
-                sb.append("\n").append(map.get(str));
-            }
-            sb.append("\n\n즐겨찾기 한 영화 목록입니다");
-            Map<String, String> map2 = new HashMap<>();
-            List<ScreenVO> list2 = screenDAO.selectAll();
-            for (ScreenVO vo : list2) {
-                map2.put(vo.getMovie_id(), vo.getTitle());
-            }
-            for (String str : member.getMovie_favorites()){
-                sb.append("\n").append(map2.get(str));
-            }
+                StringBuilder sb = new StringBuilder();
+                sb.append("즐겨찾기 한 극장 목록입니다");
+                Map<String, String> map = new HashMap<>();
+                List<TheaterVO> list = theaterDAO.getTheaterCodes();
+                for (TheaterVO vo : list) {
+                    map.put(vo.getTheater_id(), vo.getTheater_name());
+                }
+                for (String str : member.getTheater_favorites()){
+                    sb.append("\n").append(map.get(str));
+                }
+                sb.append("\n\n즐겨찾기 한 영화 목록입니다");
+                Map<String, String> map2 = new HashMap<>();
+                List<ScreenVO> list2 = screenDAO.selectAll();
+                for (ScreenVO vo : list2) {
+                    map2.put(vo.getMovie_id(), vo.getTitle());
+                }
+                for (String str : member.getMovie_favorites()){
+                    sb.append("\n").append(map2.get(str));
+                }
 
-            System.out.println(lineAPI.sendMessageTest(sb.toString(), lineId));
-        }catch (Exception e) {
-            e.printStackTrace();
+                System.out.println(lineAPI.sendMessageTest(sb.toString(), lineId));
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("sendMessage Done");
 
         //return "admin/sendMessage";
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/admin/fileExplorerTest")
+    public String fet(Model model){
+        return "admin/fileExplorerTest";
+    }
+
 }

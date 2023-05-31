@@ -2,6 +2,7 @@ package com.java4.popcorn.controllers.alarm;
 
 import com.java4.popcorn.controllers.SharedPropertiesStore;
 import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
+import com.java4.popcorn.database.MongoMember.MongoMemberVO;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.screen.ScreenVO;
 import com.java4.popcorn.database.theater.TheaterVO;
@@ -68,9 +69,18 @@ public class MovieController {
     @RequestMapping(method = RequestMethod.GET, value = "alarm/movie/")
     public String movie_main(HttpServletRequest request,
                              Model model) {
-        System.out.println("movie_main : " + request.getSession().getAttribute("kakaoId"));
+        System.out.println("movie_main");
 
-        List<String> list = mongoMemberDAO.selectOneByKakaoId(request.getSession().getAttribute("kakaoId").toString()).getMovie_favorites();
+        String kakaoId;
+        MongoMemberVO vo;
+        List<String> list;
+        try {
+            kakaoId = request.getSession().getAttribute("kakaoId").toString();
+            vo = mongoMemberDAO.selectOneByKakaoId(kakaoId);
+            list = vo.getMovie_favorites();
+        }catch (NullPointerException e){
+            return "redirect:/login";
+        }
 
         model.addAttribute("movieOnScreen", movieOnScreen);
         model.addAttribute("movieFavorites", list);
