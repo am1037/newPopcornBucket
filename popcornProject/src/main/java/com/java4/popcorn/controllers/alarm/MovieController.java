@@ -1,7 +1,7 @@
 package com.java4.popcorn.controllers.alarm;
 
-import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
-import com.java4.popcorn.database.MongoMember.MongoMemberVO;
+import com.java4.popcorn.database.mongo.member.MongoMemberDAO;
+import com.java4.popcorn.database.mongo.member.MongoMemberVO;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.screen.ScreenVO;
 import org.springframework.stereotype.Controller;

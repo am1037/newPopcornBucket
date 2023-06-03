@@ -2,12 +2,10 @@ package com.java4.popcorn.controllers.alarm;
 
 import com.java4.popcorn.api.account.kakao.KakaoLineBridgeController;
 import com.java4.popcorn.api.line.message.LineAPI;
-import com.java4.popcorn.api.line.message.WebhookData;
-import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
+import com.java4.popcorn.database.mongo.member.MongoMemberDAO;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -1,4 +1,4 @@
-package com.java4.popcorn.database.MongoMember;
+package com.java4.popcorn.database.mongo.member;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.*;
@@ -17,11 +17,12 @@ import java.util.List;
 public class MongoMemberDAO {
     String url = "mongodb://localhost:27017";
     String dbName = "popcorn";
-    public MongoMemberVO selectOne(String id) {
+    public MongoMemberVO selectOneByMemberId(String member_id) {
+        System.out.println("selectOneByMemberId " + member_id);
         try(MongoClient mongoClient = MongoClients.create(url)) {
             MongoDatabase db = mongoClient.getDatabase(dbName);
             MongoCollection<Document> collection = db.getCollection("member");
-            Document doc = collection.find(Filters.eq("id", id))
+            Document doc = collection.find(Filters.eq("member_id", member_id))
                                      .projection(Projections.excludeId())
                                      .first();
             ObjectMapper mapper = new ObjectMapper();

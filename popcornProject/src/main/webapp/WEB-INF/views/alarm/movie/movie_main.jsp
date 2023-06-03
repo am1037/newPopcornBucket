@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/css4jmk.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <!-- jquery -->
     <script src="${pageContext.request.contextPath}/resources/js/jquery-3.6.4.js"></script>
@@ -27,20 +26,6 @@
             }
         })
     </script>
-
-    <style>
-        .center-container {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-        }
-
-        th{
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>

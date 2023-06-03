@@ -4,10 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java4.popcorn.api.line.message.LineAPI;
 import com.java4.popcorn.api.line.message.WebhookData;
-import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
-import lombok.Data;
+import com.java4.popcorn.database.mongo.member.MongoMemberDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,8 +23,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class KakaoLineBridgeController {

@@ -4,8 +4,20 @@ body {
     padding-top: 60px;
     padding-bottom: 40px;
 }
+
 #collapsibleNavbar {
     padding-left: 10px;
 }
 
+.center-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
 
+.img-temp {
+    height: 10%;
+    max-height: 15%;
+}

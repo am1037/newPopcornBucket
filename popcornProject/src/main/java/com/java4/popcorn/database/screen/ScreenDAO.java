@@ -19,11 +19,15 @@ public class ScreenDAO {
         return my.selectList("ScreenDAO.selectAllTitle");
     }
 
-    public List<ScreenVO> selectByMovieId(String movie_id) {
+    public List<String> selectDistinctMovieIdByDate(String date){
+        return my.selectList("ScreenDAO.selectDistinctMovieIdByDate", date);
+    }
+
+    public List<ScreenVO> selectByMovieId(String movieId) {
         try {
             Map<String, String> map = new HashMap<>();
-            map.put("movie_id", movie_id);
-            return my.selectList("ScreenDAO.selectByMovieId", map);
+            map.put("movie_docid", movieId);
+            return my.selectList("ScreenDAO.selectByDate", map);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,29 +56,6 @@ public class ScreenDAO {
         return null;
     }
 
-    public List<ScreenVO> selectAllTitleByDate(String date){
-        try {
-            Map<String, String> map = new HashMap<>();
-            map.put("date", date);
-            return my.selectList("ScreenDAO.selectAllTitleByDate", map);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-//    @Deprecated
-//    public List<ScreenVO> selectByTheater(String theater_id){
-//        try {
-//            Map<String, String> map = new HashMap<>();
-//            map.put("theater_id", theater_id);
-//            return my.selectList("ScreenDAO.selectByTheater", map);
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-
-    @Deprecated
     public List<ScreenVO> selectByTheaterAndDate(String theater, String date){
         try {
             Map<String, String> map = new HashMap<>();
@@ -87,13 +68,25 @@ public class ScreenDAO {
         return null;
     }
 
-    @Deprecated
-    public List<ScreenVO> selectByTheaterAndDateAndMovieId(String theater, String day, String movie) {
+    public List<ScreenVO> selectByMovieIdAndDate(String movie, String day) {
+        Map<String, String> map = new HashMap<>();
+        map.put("movie_docid", movie);
+        map.put("date", day);
+        return my.selectList("ScreenDAO.selectByMovieIdAndDate", map);
+    }
+
+    public List<ScreenVO> selectByMovieIdAndTheater(String movie, String theater) {
+        Map<String, String> map = new HashMap<>();
+        map.put("theater_id", theater);
+        map.put("movie_docid", movie);
+        return my.selectList("ScreenDAO.selectByMovieIdAndTheater", map);
+    }
+    public List<ScreenVO> selectByMovieIdAndTheaterAndDate(String movie, String theater, String day) {
         Map<String, String> map = new HashMap<>();
         map.put("theater_id", theater);
         map.put("date", day);
-        map.put("movie_id", movie);
-        return my.selectList("ScreenDAO.selectByTheaterAndDateAndMovieId", map);
+        map.put("movie_docid", movie);
+        return my.selectList("ScreenDAO.selectByMovieIdAndTheaterAndDate", map);
     }
 
 

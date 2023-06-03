@@ -12,7 +12,7 @@ package com.java4.popcorn.controllers.admin;
 import com.java4.popcorn.api.line.message.LineAPI;
 import com.java4.popcorn.controllers.alarm.SharedPropertiesStore;
 import com.java4.popcorn.controllers.alarm.MovieController;
-import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
+import com.java4.popcorn.database.mongo.member.MongoMemberDAO;
 import com.java4.popcorn.database.screen.ScreenDAO;
 import com.java4.popcorn.database.theater.TheaterDAO;
 import org.springframework.beans.factory.annotation.Autowired;

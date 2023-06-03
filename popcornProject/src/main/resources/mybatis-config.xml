@@ -9,7 +9,7 @@
 
 
     <mappers>
-        <mapper resource="mappers/movieMapper.xml"/>
+        <mapper resource="mappers/movieMappingMapper.xml"/>
         <mapper resource="mappers/screenMapper.xml"/>
         <mapper resource="mappers/theaterMapper.xml"/>
     </mappers>

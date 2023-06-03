@@ -3,8 +3,8 @@ package com.java4.popcorn.controllers.alarm;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java4.popcorn.controllers.alarm.subclasses.FavoritesRequest;
-import com.java4.popcorn.database.MongoMember.MongoMemberDAO;
-import com.java4.popcorn.database.MongoMember.MongoMemberVO;
+import com.java4.popcorn.database.mongo.member.MongoMemberDAO;
+import com.java4.popcorn.database.mongo.member.MongoMemberVO;
 import com.java4.popcorn.database.theater.TheaterDAO;
 import com.java4.popcorn.database.theater.TheaterVO;
 import org.springframework.stereotype.Controller;
@@ -40,8 +40,6 @@ public class TheaterController {
      */
     @Deprecated
     public void setProperties(){
-        System.out.println("TheaterController initializing...");
-
         theaterList = theaterDAO.selectAllTheaterCode();
         theaterMap = new HashMap<>();
         regionSet = new HashSet<>();
@@ -61,19 +59,11 @@ public class TheaterController {
             }
             theaterMapByRegion.put(region, theaters);
         }
-
-        System.out.println("TheaterController initialized.");
-
-        theaterMapByRegion.forEach((key, value) -> {
-            System.out.println(key + " : " + value);
-        });
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "alarm/theater/")
     public String theater_main(HttpServletRequest request,
                                Model model) {
-        System.out.println("theater_main");
-
         String kakaoId;
         MongoMemberVO vo;
         try {
